@@ -1,6 +1,6 @@
 <%-- 
     Document   : Panel
-    Created on : 27-11-2020, 4:41:22
+    Created on : 06-11-2020, 4:41:22
     Author     : seiko
 --%>
 
@@ -13,20 +13,20 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Inmobiliaria SINNIUNO</title>
+        <title>JSP Page</title>
     </head>
     <body>
-
+        
         <%
             Connection con;
             Conexion cn = new Conexion();
             PreparedStatement ps;
             ResultSet rs;
         %>
-
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+        
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <link href="css/estilo.css" rel="stylesheet" type="text/css"/>  
 
 
@@ -54,78 +54,81 @@
                     <form class="form" method="post" action="crearpropiedad" nctype="multipart/form-data"  >
                         <div class="tab-content" id="myTabContent">
                             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                                <h3 class="register-heading">Inmobiliaria SINNIUNO</h3>
+                                <h3 class="register-heading">Corredora de Propiedades</h3>
                                 <div class="row register-form">
                                     <div class="col-md-6">
                                         <div class="form-group">
-
+                                            
                                             <input type="text" class="form-control" placeholder="M2" value="" name="m2" id="m2"/>
-
+                                            
                                         </div>
                                         <div class="form-group" >
                                             <input type="text" class="form-control" placeholder="valor" value="" id="valor"/>
-
+                                            
                                         </div>
                                         <div class="form-group">
-
-
+                                      
+                                            
                                             <select class="form-control" id="Arriendo">
 
-                                                <%
-                                                    String sql = "select nombre from Arriendos;";
-                                                    try {
-                                                        con = cn.getConnection();
-                                                        ps = con.prepareStatement(sql);
+                                    <%
+                                        
+                                        String sql = "select nombre from Arriendos;";
+                                        try {
+                                            con = cn.getConnection();
+                                            ps = con.prepareStatement(sql);
 
-                                                        rs = ps.executeQuery();
+                                            rs = ps.executeQuery();
 
-                                                        while (rs.next()) {
-                                                            out.println("<option>" + rs.getString("nombre") + "</option>");
+                                            while (rs.next()) {
+                                                out.println("<option>" + rs.getString("nombre") + "</option>");
 
-                                                        }
+                                            }
+                                            
+                                        } catch (Exception e) {
+                                            out.println(e.toString());
+                                        }
 
-                                                    } catch (Exception e) {
-                                                        out.println(e.toString());
-                                                    }
 
-
-                                                %>
-                                            </select>
-
+                                    %>
+                                </select>
+                                            
                                         </div>
                                         <div class="form-group">
-
-
+                                      
+                                            
                                             <select class="form-control" id="Arriendo">
 
-                                                <%                                        String sql1 = "select nombre from ventas;";
-                                                    try {
-                                                        con = cn.getConnection();
-                                                        ps = con.prepareStatement(sql1);
+                                    <%
+                                        
+                                        String sql1 = "select nombre from ventas;";
+                                        try {
+                                            con = cn.getConnection();
+                                            ps = con.prepareStatement(sql1);
 
-                                                        rs = ps.executeQuery();
+                                            rs = ps.executeQuery();
 
-                                                        while (rs.next()) {
-                                                            out.println("<option>" + rs.getString("nombre") + "</option>");
+                                            while (rs.next()) {
+                                                out.println("<option>" + rs.getString("nombre") + "</option>");
 
-                                                        }
+                                            }
+                                            
+                                        } catch (Exception e) {
+                                            out.println(e.toString());
+                                        }
 
-                                                    } catch (Exception e) {
-                                                        out.println(e.toString());
-                                                    }
 
-
-                                                %>
-                                            </select></div>
-                                        <div class="form-group">
+                                    %>
+                                </select></div>
+                                <div class="form-group">
                                             <input type="text" class="form-control" placeholder="fecha" value="" id="fecha"/>
                                         </div>
-
-                                    </div>
-
-
+                                            
+                                        </div>
+                                        
+                                    
                                     <div class="col-md-6">
-
+                                        
                                         <div class="form-group">
                                             <input type="text" class="form-control" name="direccion"  placeholder="direccion" value="" />
                                         </div>
@@ -136,43 +139,45 @@
                                             <input type="file"name="file[]" id="archivos" class="form-contralue" multiple/>
                                         </div>
                                         <div class="form-group">
-
-
+                                      
+                                            
                                             <select class="form-control" id="Arriendo">
 
-                                                <%                                        String sql2 = "select rut_usuario from usuarios;";
-                                                    try {
-                                                        con = cn.getConnection();
-                                                        ps = con.prepareStatement(sql2);
+                                    <%
+                                        
+                                        String sql2 = "select rut_usuario from usuarios;";
+                                        try {
+                                            con = cn.getConnection();
+                                            ps = con.prepareStatement(sql2);
 
-                                                        rs = ps.executeQuery();
+                                            rs = ps.executeQuery();
 
-                                                        while (rs.next()) {
-                                                            out.println("<option>" + rs.getString("rut_usuario") + "</option>");
+                                            while (rs.next()) {
+                                                out.println("<option>" + rs.getString("rut_usuario") + "</option>");
 
-                                                        }
+                                            }
+                                            
+                                        } catch (Exception e) {
+                                            out.println(e.toString());
+                                        }
 
-                                                    } catch (Exception e) {
-                                                        out.println(e.toString());
-                                                    }
 
-
-                                                %>
-                                            </select>
-
+                                    %>
+                                </select>
+                                            
                                         </div>
                                         <input type="submit" class="btnEnviar"  value="Enviar"/>
                                     </div>
                                 </div>
                             </div>
-
+                            
+                                </div>
+                                </form>
+                            </div>
                         </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-
-
+                    </div>
+                
+        
 
     </body>
 </html>

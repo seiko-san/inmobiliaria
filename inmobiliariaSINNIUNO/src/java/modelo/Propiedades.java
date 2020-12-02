@@ -9,207 +9,157 @@ package modelo;
  *
  * @author seiko
  */
- 	 	 	 	
-
 public class Propiedades {
 
     private int codigo;
-    private int tipo;
-    private String fotos;
-    private String descripción;
-    private int cantbaños;
-    private int cantdormitorios;
-    private float area_total;
-    private float area_construida;
-    private float precio_peso;
-    private float precio_uf;
-    private String fecha_publicación;
-    private boolean opcion_visita;
-    private boolean bodega;
-    private boolean estacionamiento;
-    private boolean logia;
-    private boolean cocina_amoblada;
-    private boolean antejardin;
-     private boolean Patio_trasero;
-    private boolean piscina;
+    private float m2;
+    private int valor;
+    private int arriendo;
+    private int venta;
+    private String fecha;
+    private String direccion;
+    private String descripcion;
+    private String rut;
 
     public Propiedades() {
     }
 
-    public Propiedades(int codigo, int tipo, String fotos, String descripción, int cantbaños, int cantdormitorios, float area_total, float area_construida, float precio_peso, float precio_uf, String fecha_publicación, boolean opcion_visita, boolean bodega, boolean estacionamiento, boolean logia, boolean cocina_amoblada, boolean antejardin, boolean Patio_trasero, boolean piscina) {
+    public Propiedades(int codigo, float m2, int valor, int arriendo, int venta, String fecha, String direccion, String descripcion, String rut) {
         this.codigo = codigo;
-        this.tipo = tipo;
-        this.fotos = fotos;
-        this.descripción = descripción;
-        this.cantbaños = cantbaños;
-        this.cantdormitorios = cantdormitorios;
-        this.area_total = area_total;
-        this.area_construida = area_construida;
-        this.precio_peso = precio_peso;
-        this.precio_uf = precio_uf;
-        this.fecha_publicación = fecha_publicación;
-        this.opcion_visita = opcion_visita;
-        this.bodega = bodega;
-        this.estacionamiento = estacionamiento;
-        this.logia = logia;
-        this.cocina_amoblada = cocina_amoblada;
-        this.antejardin = antejardin;
-        this.Patio_trasero = Patio_trasero;
-        this.piscina = piscina;
+        this.m2 = m2;
+        this.valor = valor;
+        this.arriendo = arriendo;
+        this.venta = venta;
+        this.fecha = fecha;
+        this.direccion = direccion;
+        this.descripcion = descripcion;
+        this.rut = rut;
     }
 
+    /**
+     * @return the codigo
+     */
     public int getCodigo() {
         return codigo;
     }
 
+    /**
+     * @param codigo the codigo to set
+     */
     public void setCodigo(int codigo) {
         this.codigo = codigo;
     }
 
-    public int getTipo() {
-        return tipo;
+    /**
+     * @return the m2
+     */
+    public float getM2() {
+        return m2;
     }
 
-    public void setTipo(int tipo) {
-        this.tipo = tipo;
+    /**
+     * @param m2 the m2 to set
+     */
+    public void setM2(float m2) {
+        this.m2 = m2;
     }
 
-    public String getFotos() {
-        return fotos;
+    /**
+     * @return the valor
+     */
+    public int getValor() {
+        return valor;
     }
 
-    public void setFotos(String fotos) {
-        this.fotos = fotos;
+    /**
+     * @param valor the valor to set
+     */
+    public void setValor(int valor) {
+        this.valor = valor;
     }
 
-    public String getDescripción() {
-        return descripción;
+    /**
+     * @return the arriendo
+     */
+    public int getArriendo() {
+        return arriendo;
     }
 
-    public void setDescripción(String descripción) {
-        this.descripción = descripción;
+    /**
+     * @param arriendo the arriendo to set
+     */
+    public void setArriendo(int arriendo) {
+        this.arriendo = arriendo;
     }
 
-    public int getCantbaños() {
-        return cantbaños;
+    /**
+     * @return the venta
+     */
+    public int getVenta() {
+        return venta;
     }
 
-    public void setCantbaños(int cantbaños) {
-        this.cantbaños = cantbaños;
+    /**
+     * @param venta the venta to set
+     */
+    public void setVenta(int venta) {
+        this.venta = venta;
     }
 
-    public int getCantdormitorios() {
-        return cantdormitorios;
+    /**
+     * @return the fecha
+     */
+    public String getFecha() {
+        return fecha;
     }
 
-    public void setCantdormitorios(int cantdormitorios) {
-        this.cantdormitorios = cantdormitorios;
+    /**
+     * @param fecha the fecha to set
+     */
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
     }
 
-    public float getArea_total() {
-        return area_total;
+    /**
+     * @return the direccion
+     */
+    public String getDireccion() {
+        return direccion;
     }
 
-    public void setArea_total(float area_total) {
-        this.area_total = area_total;
+    /**
+     * @param direccion the direccion to set
+     */
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
     }
 
-    public float getArea_construida() {
-        return area_construida;
+    /**
+     * @return the descripcion
+     */
+    public String getDescripcion() {
+        return descripcion;
     }
 
-    public void setArea_construida(float area_construida) {
-        this.area_construida = area_construida;
+    /**
+     * @param descripcion the descripcion to set
+     */
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 
-    public float getPrecio_peso() {
-        return precio_peso;
+    /**
+     * @return the rut
+     */
+    public String getRut() {
+        return rut;
     }
 
-    public void setPrecio_peso(float precio_peso) {
-        this.precio_peso = precio_peso;
+    /**
+     * @param rut the rut to set
+     */
+    public void setRut(String rut) {
+        this.rut = rut;
     }
-
-    public float getPrecio_uf() {
-        return precio_uf;
-    }
-
-    public void setPrecio_uf(float precio_uf) {
-        this.precio_uf = precio_uf;
-    }
-
-    public String getFecha_publicación() {
-        return fecha_publicación;
-    }
-
-    public void setFecha_publicación(String fecha_publicación) {
-        this.fecha_publicación = fecha_publicación;
-    }
-
-    public boolean isOpcion_visita() {
-        return opcion_visita;
-    }
-
-    public void setOpcion_visita(boolean opcion_visita) {
-        this.opcion_visita = opcion_visita;
-    }
-
-    public boolean isBodega() {
-        return bodega;
-    }
-
-    public void setBodega(boolean bodega) {
-        this.bodega = bodega;
-    }
-
-    public boolean isEstacionamiento() {
-        return estacionamiento;
-    }
-
-    public void setEstacionamiento(boolean estacionamiento) {
-        this.estacionamiento = estacionamiento;
-    }
-
-    public boolean isLogia() {
-        return logia;
-    }
-
-    public void setLogia(boolean logia) {
-        this.logia = logia;
-    }
-
-    public boolean isCocina_amoblada() {
-        return cocina_amoblada;
-    }
-
-    public void setCocina_amoblada(boolean cocina_amoblada) {
-        this.cocina_amoblada = cocina_amoblada;
-    }
-
-    public boolean isAntejardin() {
-        return antejardin;
-    }
-
-    public void setAntejardin(boolean antejardin) {
-        this.antejardin = antejardin;
-    }
-
-    public boolean isPatio_trasero() {
-        return Patio_trasero;
-    }
-
-    public void setPatio_trasero(boolean Patio_trasero) {
-        this.Patio_trasero = Patio_trasero;
-    }
-
-    public boolean isPiscina() {
-        return piscina;
-    }
-
-    public void setPiscina(boolean piscina) {
-        this.piscina = piscina;
-    }
-
-   
 
 }

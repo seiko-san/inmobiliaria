@@ -53,21 +53,41 @@ public class UsuarioConect implements Validar {
         try {
             con = cn.getConnection();
             ps = con.prepareStatement(sql);
+//           ps.setString(1, rut.getNick());
+//           ps.setString(2, rut.getClave());
+
+//           rs=ps.executeQuery();
+//           rs.getString("Rut_usuario");
+//           rs.getString("nombre_usuario");
+//           rs.getString("apellido_usuario");
+//           rs.getString("tipo_usuario");
+//           rs.getString("correo_usuario");
+//           rs.getString("direccion");
+//           rs.getString("telefono");
+//           rs.getString("nick_usuario");
+//           rs.getString("clave_usuario");
             while (rs.next()) {
                 
-  
-                rs.getString("rut_usuario");
+//               rut.setNick(rs.getString("nick_usuario"));
+//               rut.setClave(rs.getString("clave_usuario"));
+
+                rs.getString("Rut_usuario");
                 rs.getString("nombre_usuario");
                 rs.getString("apellido_usuario");
                 rs.getString("tipo_usuario");
-                rs.getString("fechanac_usuario");
-                rs.getString("correo");
-                rs.getString("clave");
-                rs.getString("tipo_sexo");
+                rs.getString("correo_usuario");
+                rs.getString("direccion");
                 rs.getString("telefono");
+                rs.getString("nick_usuario");
+                rs.getString("clave_usuario");
                 r = r + 1;
 
             }
+//            if (r == 1) {
+//                
+//            } else {
+//                
+//            }
         } catch (SQLException e) {
             
         }

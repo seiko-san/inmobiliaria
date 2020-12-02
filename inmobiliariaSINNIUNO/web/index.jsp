@@ -9,44 +9,48 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Inmobiliaria SINNIUNO</title>
+        <title>JSP Page</title>
     </head>
-    <body>  
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>        <link href="css/estilos.css" rel="stylesheet" type="text/css"/>
-        <div class="container">
-            <div id="login-row" class="row justify-content-center align-items-center">
-                <div id="login-column" class="col-md-6">
-                    <div class="box">
-                        <div class="shape1"></div>
-                        <div class="shape2"></div>
-                        <div class="shape3"></div>
-                        <div class="shape4"></div>
-                        <div class="shape5"></div>
-                        <div class="shape6"></div>
-                        <div class="shape7"></div>
-                        <div class="float">
-                            <form class="form" method="post" action="Controlador">
+    
 
-                                <div class="form-group">
-                                    <img src="img/user.png" height="20" width="20" alt=""/>
-                                    <label for="rut" class="text-white">Rut: </label><br>
-                                    <input type="text" name="txtrut" id="nick" class="form-control" placeholder="Ingrese su rut">
-                                </div>
-                                <div class="form-group">
-                                    <img src="img/clave.png" height="25" width="25" alt=""/>
-                                    <label for="clave" class="text-white">contraseña: </label><br>
-                                    <input type="password" name="txtclave" id="clave" class="form-control" placeholder="Ingrese su contraseña">
-                                </div>
-                                <div class="form-group">
-                                    <input class="btn btn-info btn-md" type="submit" name="accion"  value="Ingresar">
-                                </div>
-                            </form>
-                        </div>
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <link href="css/estilos.css" rel="stylesheet" type="text/css"/>
+        
+
+
+    <body id="LoginForm">
+        <div class="container">
+            <h1 class="form-heading">Inmobiliaria SINNIUNO</h1>
+            <div class="login-form">
+                <div class="main-div">
+                    <div class="panel">
+                        <h2>Login de ingreso</h2>
+                        <p>Por favor digite su rut y contraseña</p>
                     </div>
+                        <form id="Login" class="form" method="post" action="Controlador">
+                        <div class="form-group ">
+                                    <img src="img/user.png" height="20" width="20" alt=""/>
+                                    <label for="nick" class="text">Ingrese su rut: </label><br>
+                                    <input type="text" name="txtnick" id="nick" class="form-control" placeholder="Ingrese nick de usuario">
+                                </div>
+                            
+                        <div class="form-group">
+                                    <img src="img/clave.png" height="25" width="25" alt=""/>
+                                    <label for="clave" class="text">Ingrese su contraseña: </label><br>
+                                    <input type="password" name="txtclave" id="clave" class="form-control" placeholder="Ingrese contraseña">
+                                </div>
+                        <div class="forgot">
+                            <a href="#">¿olvidó su contraseña?</a>
+                        </div>
+                        <button type="submit" name="accion" class="btn btn-primary" value="Ingresar">Ingresar</button>
+                    </form>
                 </div>
-            </div>
-        </div>
-    </body>
+                <p class="botto-text"> INMOBILIARIA SINNIUNO</p>
+            </div></div>
+
+
+</body>
+<footer>
+    
+</footer>
 </html>

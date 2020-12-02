@@ -1,3 +1,11 @@
+<%-- 
+    Document   : panel_administrador
+    Created on : 02-12-2020, 18:32:56
+    Author     : seiko
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -175,12 +183,12 @@
           
               <ul class="nav nav-treeview">
                   <li>
-                     <!-- <a href="./vistas/agregardueño.jsp" class="nav-link"></a>
-                   <a href="#" onclick="javascript:gestiondueño();" class="nav-link">
-                         <script type="text/javascript"> gestiondueño();    </script> -->
-                         <a href="./vistas/agregardueño.jsp" class="nav-link">
+                     <!-- <a href="./vistas/agregardueÃ±o.jsp" class="nav-link"></a>
+                   <a href="#" onclick="javascript:gestiondueÃ±o();" class="nav-link">
+                         <script type="text/javascript"> gestiondueÃ±o();    </script> -->
+                         <a href="./vistas/agregardueÃ±o.jsp" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Dueño de inmueble</p>
+                  <p>DueÃ±o de inmueble</p>
                 </a>
                   </li>
             </ul >
@@ -783,3 +791,4 @@
 <script src="dist/js/pages/dashboard2.js"></script>
 </body>
 </html>
+

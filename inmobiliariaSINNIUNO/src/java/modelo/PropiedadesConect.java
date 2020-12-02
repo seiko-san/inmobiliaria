@@ -14,56 +14,71 @@ import java.sql.ResultSet;
  * @author seiko
  */
 public class PropiedadesConect extends Conexion {
-
-    public boolean crear_propiedad(Propiedades p) {
-
-        PreparedStatement ps = null;
-
-        boolean dato = false;
-        try {
-            String sql = "INSERT INTO propiedad('codigo_propiedad', 'tipo_propiedad',\n"
-                    + " 'fotos', 'descripción', 'cantbaños', 'cantdormitorios',\n"
-                    + " 'area_total', 'area_construida', 'precio_peso','precio_uf', \n"
-                    + " 'fecha_publicación', 'opcion_visita', 'bodega', 'estacionamiento',\n"
-                    + " 'logia', 'cocina_amoblada', 'antejardin', 'Patio_trasero', 'piscina')"
-                    + "VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-
-            ps = getConnection().prepareStatement(sql);
-            ps.setInt(1, p.getTipo());
-            ps.setString(2, p.getFotos());
-            ps.setString(3, p.getDescripción());
-            ps.setInt(4, p.getCantbaños());
-            ps.setInt(5, p.getCantdormitorios());
-            ps.setFloat(6, p.getArea_total());
-            ps.setFloat(7, p.getArea_construida());
-            ps.setFloat(8, p.getPrecio_peso());
-            ps.setFloat(9, p.getPrecio_uf());
-            ps.setString(10, p.getFecha_publicación());
-            ps.setBoolean(11, p.isOpcion_visita());
-            ps.setBoolean(12, p.isBodega());
-            ps.setBoolean(13, p.isEstacionamiento());
-            ps.setBoolean(14, p.isLogia());
-            ps.setBoolean(15, p.isCocina_amoblada());
-            ps.setBoolean(16, p.isAntejardin());
-            ps.setBoolean(17, p.isPatio_trasero());
-            ps.setBoolean(18, p.isPiscina());
-
-            if (ps.executeUpdate() == 1) {
-                dato = true;
-            }
-        } catch (Exception e) {
-        } finally {
-            try {
-                if (getConnection() != null) {
-                    getConnection().close();
+    
+    public boolean crear_propiedad(Propiedades p){
+            
+            PreparedStatement ps = null;
+            
+            boolean dato = false;
+            try{
+                String sql = "INSERT INTO propiedades(m2_propiedad,"+
+                        " valor_propiedad, arriendo_propiedad, venta_propiedad, fecha_propiedad,"+
+                        " dirección_propiedad, descripcion_propiedad, rut_usuario) "+
+                        "VALUES(?,?,?,?,?,?,?,?)";
+                
+                ps = getConnection().prepareStatement(sql);
+                ps.setFloat(1, p.getM2());
+                ps.setInt(2, p.getValor());
+                ps.setInt(3, p.getArriendo());
+                ps.setInt(4, p.getVenta());
+                ps.setString(5, p.getFecha());
+                ps.setString(6, p.getDireccion());
+                ps.setString(7, p.getDescripcion());
+                ps.setString(8, p.getRut());
+                
+                if(ps.executeUpdate()==1){
+                    dato = true;
                 }
-                if (ps != null) {
-                    ps.close();
+            }catch(Exception e){
+            }finally{
+                try{
+                    if (getConnection() !=null) getConnection().close();
+                    if(ps != null)ps.close();
+                }catch(Exception e){
                 }
-            } catch (Exception e) {
             }
-        }
-        return dato;
-    }
-
+            return dato;
+}
+//    public static void main(String[] args) {
+//        
+//        PropiedadesConect proc =new PropiedadesConect();
+//        Propiedades p = new Propiedades();
+//          
+//         
+//        float m2 = 125;
+//        int valor = 100000;
+//        int arriendo = 1;
+//        int venta = 1;
+//        String fecha = "2020-03-05";
+//        String direccion = "santiago 123";
+//        String descripcion = "local 1";
+//        String rut = "1-6";
+//        
+//        
+//        p.setM2(m2);
+//        p.setValor(valor);
+//        p.setArriendo(arriendo);
+//        p.setVenta(venta);
+//        p.setFecha(fecha);
+//        p.setDireccion(direccion);
+//        p.setDescripcion(descripcion);
+//        p.setRut(rut);
+//      
+//
+//        System.out.println(proc.crear_propiedad(p));
+//    }
+    
+    
+    
+   
 }

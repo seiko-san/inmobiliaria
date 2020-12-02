@@ -24,7 +24,8 @@ public class Conexion {
     public String url = "jdbc:mysql://" + hostname + ":" + port + "/" + database  ;
 
     public java.sql.Connection con;
-   
+    
+    
       public Conexion(){
 
         try {

@@ -11,8 +11,6 @@ package modelo;
  */
 public class Usuario {
 
-       	
-    
     String rut;
     String nombre;
     String apellido;
@@ -110,5 +108,6 @@ public class Usuario {
         this.telefono = telefono;
     }
 
+    
     
 }
