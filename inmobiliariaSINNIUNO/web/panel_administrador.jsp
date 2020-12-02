@@ -3,7 +3,10 @@
     Created on : 02-12-2020, 18:32:56
     Author     : seiko
 --%>
-
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.PreparedStatement"%>
+<%@page import="modelo.Conexion"%>
+<%@page import="java.sql.Connection"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <!DOCTYPE html>
@@ -27,6 +30,12 @@
 </head>
 <body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
 <div class="wrapper">
+     <%
+            Connection con;
+            Conexion cn = new Conexion();
+            PreparedStatement ps;
+            ResultSet rs;
+        %>
   <!-- Navbar -->
   <nav class="main-header navbar navbar-expand navbar-white navbar-light">
    
@@ -153,7 +162,7 @@
           <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Alexander Pierce</a>
+          <a href="#" class="d-block">${nick}</a>
         </div>
       </div>
 
