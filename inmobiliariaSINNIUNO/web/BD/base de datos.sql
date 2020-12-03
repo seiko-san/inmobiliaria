@@ -61,6 +61,7 @@ piscina boolean not null,
 primary key (codigo_propiedad),
 foreign key (tipo_propiedad) references tipo_propiedad(id_tipo));
 
+
 INSERT INTO `tipo_usuario` (`id_tipo`, `nombre_tipo`, `descripcion_tipo`)
  VALUES (NULL, 'administrador', 'administrador del sistema de inmueble'), 
  (NULL, 'Dueño de Inmueble o Propietario', 'Dueño del Inmueble o Propietario del mismo'), 
@@ -70,8 +71,8 @@ INSERT INTO `tipo_usuario` (`id_tipo`, `nombre_tipo`, `descripcion_tipo`)
  (NULL, 'masculino', 'tipo de sexo masculino');
  INSERT INTO `usuarios` (`rut_usuario`, `nombre_usuario`, `apellido_usuario`, `tipo_usuario`,
  `fechanac_usuario`, `correo`, `clave`, `tipo_sexo`, `telefono`) 
- VALUES ('198997986', 'darlyn', 'soazo', '1', '1999-11-08', 'dsaozolara@gmail.com', '123', '1', '55121654');
-
+ VALUES ('198997986', 'darlyn', 'soazo', '1', '1999-11-08', 'dsaozolara@gmail.com', '123', '1', '55121654'),
+ ('176799129','pedro','gatica','2','1991-08-08','pgaticaguajardo@gmail.com','123','2','45361931');
 
 select * from usuarios where rut_usuario = '198997986' and clave = '123'
 
@@ -81,3 +82,5 @@ INSERT INTO propiedad('codigo_propiedad', 'tipo_propiedad',
  'area_total', 'area_construida', 'precio_peso','precio_uf', 
  'fecha_publicación', 'opcion_visita', 'bodega', 'estacionamiento',
  'logia', 'cocina_amoblada', 'antejardin', 'Patio_trasero', 'piscina')-*/
+ 
+ 
