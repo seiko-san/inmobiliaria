@@ -45,7 +45,7 @@
                         <button type="submit" name="accion" class="btn btn-primary" value="Ingresar">Ingresar</button>
                     </form>
                     <div class="forgot">
-                            <a href="nuevousuario.jsp">Crear nuevo usuario</a>
+                            <a href="Nuevo_Usuario.jsp">Crear nuevo usuario</a>
                         </div>
                 </div>
                 <p class="botto-text"> INMOBILIARIA SINNIUNO</p>

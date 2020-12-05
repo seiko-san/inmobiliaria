@@ -24,7 +24,7 @@ public class UsuarioConect implements Validar {
     int perfil = 0;
 
     @Override
-    public int validar(Usuario usu) {
+    public int validar(Usuario_Free usu) {
         String sql = "select id_perfil from usuarios where rut_usuario = ? and clave_usuario = ? ";
         try {
             con = cn.getConnection();
@@ -51,7 +51,7 @@ public class UsuarioConect implements Validar {
     }
 
     @Override
-    public Usuario listarID(String rut) {
+    public Usuario_Free listarID(String rut) {
 
         String sql = "select * from usuarios";
         try {

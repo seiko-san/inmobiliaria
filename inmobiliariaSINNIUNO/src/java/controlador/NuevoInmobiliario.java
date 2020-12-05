@@ -6,24 +6,21 @@
 package controlador;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.PrintWriter;
-import static java.lang.System.out;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import modelo.UsuarioConect;
+import javax.servlet.http.Part;
 import modelo.Usuario_Free;
 
 /**
  *
  * @author seiko
  */
-public class Controlador extends HttpServlet {
+public class NuevoInmobiliario extends HttpServlet {
 
-//    UsuarioConect cone = new UsuarioConect();
-//    Usuario_Free us = new Usuario_Free();
-//    int r;
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -36,34 +33,42 @@ public class Controlador extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-
-        String accion = request.getParameter("accion");
         
-        UsuarioConect cone = new UsuarioConect();
-        Usuario_Free us = new Usuario_Free();
         
-        if (accion.equals("Ingresar")) {
-            String nick = request.getParameter("txtnick");
-            String clave = request.getParameter("txtclave");
-            us.setRut(nick);
-            us.setClave(clave);
-            int perfil = cone.validar(us);
-            //out.println("<h1>Servlet NuevaPropiedad at " + r + "</h1>");
+        String rut = request.getParameter("rut");
+        String nombre = request.getParameter("nombre");
+        String apellido = request.getParameter("apellido");
+        String fecha = request.getParameter("fecha");
+        String correo = request.getParameter("correo");
+        String clave = request.getParameter("clave");
+        String telefono = request.getParameter("telefono");
+        Part archivos = request.getPart("archivos");
 
-            if (perfil == 1) {
-                request.getSession().setAttribute("nick", nick);
-                request.getRequestDispatcher("panel_administrador.jsp").forward(request, response);
-            } else if(perfil == 2){
-                request.getSession().setAttribute("nick", nick);
-                request.getRequestDispatcher("panel_propietario.jsp").forward(request, response);
-            }else if(perfil == 3){
-                request.getSession().setAttribute("nick", nick);
-                request.getRequestDispatcher("panel_inmobiliario.jsp").forward(request, response);
-    
-            }else{
-                request.getRequestDispatcher("index.jsp").forward(request, response);
+        InputStream inputStream = null;
+
+        if (archivos != null) {
+            inputStream = archivos.getInputStream();
+            System.out.println(inputStream);
+            Usuario_Free usuario = new Usuario_Free();
+
+            try (PrintWriter out = response.getWriter()) {
+                out.print(usuario.guardarImagen(inputStream, 2));
             }
         }
+
+        System.out.println("EN POST");
+
+//        try (PrintWriter out = response.getWriter()) {
+//            /* TODO output your page here. You may use following sample code. */
+//            out.println("<!DOCTYPE html>");
+//            out.println("<html>");
+//            out.println("<head>");
+//            out.println("<title>Servlet NuevoInmobiliario</title>");            
+//            out.println("</head>");
+//            out.println("<body>");
+//            out.println("<h1>Servlet NuevoInmobiliario at " + request.getContextPath() + "</h1>");
+//            out.println("</body>");
+//            out.println("</html>");
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

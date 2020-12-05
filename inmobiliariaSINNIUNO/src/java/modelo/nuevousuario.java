@@ -13,7 +13,7 @@ import java.sql.PreparedStatement;
  */
 public class nuevousuario extends Conexion{
     
-    public boolean crearusuario(Usuario u){
+    public boolean crearusuario(Usuario_Free u){
         
        PreparedStatement ps = null;
             

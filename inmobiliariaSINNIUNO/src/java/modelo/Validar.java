@@ -11,6 +11,6 @@ package modelo;
  */
 public interface Validar {
     
-    public int validar(Usuario usu);
-    public Usuario listarID(String rut);
+    public int validar(Usuario_Free usu);
+    public Usuario_Free listarID(String rut);
 }
