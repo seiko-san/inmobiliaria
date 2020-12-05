@@ -7,6 +7,7 @@ package controlador;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import static java.lang.System.out;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -46,25 +47,22 @@ public class Controlador extends HttpServlet {
             String clave = request.getParameter("txtclave");
             us.setRut(nick);
             us.setClave(clave);
-            int r = cone.validar(us);
-            if (r == 1) {
+            int perfil = cone.validar(us);
+            //out.println("<h1>Servlet NuevaPropiedad at " + r + "</h1>");
+
+            if (perfil == 1) {
                 request.getSession().setAttribute("nick", nick);
                 request.getRequestDispatcher("panel_administrador.jsp").forward(request, response);
-            } else {
+            } else if(perfil == 2){
+                request.getSession().setAttribute("nick", nick);
+                request.getRequestDispatcher("panel_propietario.jsp").forward(request, response);
+            }else if(perfil == 3){
+                request.getSession().setAttribute("nick", nick);
+                request.getRequestDispatcher("panel_inmobiliario.jsp").forward(request, response);
+    
+            }else{
                 request.getRequestDispatcher("index.jsp").forward(request, response);
             }
-
-//        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-//            out.println("<!DOCTYPE html>");
-//            out.println("<html>");
-//            out.println("<head>");
-//            out.println("<title>Servlet Controlador</title>");            
-//            out.println("</head>");
-//            out.println("<body>");
-//            out.println("<h1>Servlet Controlador at " + request.getContextPath() + "</h1>");
-//            out.println("</body>");
-//            out.println("</html>");
         }
     }
 

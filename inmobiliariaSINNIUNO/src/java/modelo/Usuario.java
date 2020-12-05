@@ -20,11 +20,12 @@ public class Usuario {
     int sexo;
     String clave;
     int telefono;
+    int perfil;
 
     public Usuario() {
     }
 
-    public Usuario(String rut, String nombre, String apellido, int tipo_usuario, String fechanac, String correo, int sexo, String clave, int telefono) {
+    public Usuario(String rut, String nombre, String apellido, int tipo_usuario, String fechanac, String correo, int sexo, String clave, int telefono, int perfil) {
         this.rut = rut;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -34,6 +35,7 @@ public class Usuario {
         this.sexo = sexo;
         this.clave = clave;
         this.telefono = telefono;
+        this.perfil = perfil;
     }
 
     public String getRut() {
@@ -106,6 +108,14 @@ public class Usuario {
 
     public void setTelefono(int telefono) {
         this.telefono = telefono;
+    }
+
+    public int getPerfil() {
+        return perfil;
+    }
+
+    public void setPerfil(int perfil) {
+        this.perfil = perfil;
     }
 
     

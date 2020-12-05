@@ -21,10 +21,11 @@ public class UsuarioConect implements Validar {
     PreparedStatement ps;
     ResultSet rs;
     int r = 0;
+    int perfil = 0;
 
     @Override
     public int validar(Usuario usu) {
-        String sql = "select * from usuarios where rut_usuario = ? and clave = ? ";
+        String sql = "select id_perfil from usuarios where rut_usuario = ? and clave_usuario = ? ";
         try {
             con = cn.getConnection();
             ps = con.prepareStatement(sql);
@@ -32,18 +33,21 @@ public class UsuarioConect implements Validar {
             ps.setString(2, usu.getClave());
             rs = ps.executeQuery();
             while (rs.next()) {
-                r = r + 1;
-                usu.setRut(rs.getString("rut_usuario"));
-                usu.setClave(rs.getString("clave"));
+                //r = r + 1;
+                //usu.setRut(rs.getString("rut_adm"));
+                //usu.setClave(rs.getString("clave_adm"));
+                perfil = rs.getInt(1);
+                //usu.setPerfil(rs.getInt("id_perfil"));
             }
-            if (r == 1) {
-                return 1;
-            } else {
-                return 0;
-            }
+//            if (r == 1) {
+//                return 1;
+//            } else {
+//                return 0;
+//            }
         } catch (SQLException e) {
             return 0;
         }
+        return perfil;
     }
 
     @Override
