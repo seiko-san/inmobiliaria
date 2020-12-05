@@ -4,6 +4,10 @@
     Author     : Law
 --%>
 
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.PreparedStatement"%>
+<%@page import="modelo.Conexion"%>
+<%@page import="java.sql.Connection"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!doctype html>
 <html lang="es">
@@ -14,11 +18,11 @@
 
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-
+        <script src="js/propietario.js" type="text/javascript"></script>
         <title>Registrar Propietario</title>
     </head>
     <body>
-        
+
         <div class="container mt-5">
             <div class="row mb-4">
                 <div class="col-12">
@@ -28,86 +32,78 @@
             <div class="row">
                 <div class="card offset-md-3 col-12 col-md-6 shadow">
                     <div class="card-body">
-                        <form id="frm-add-propietario" action="./Propiedades">
+
+                        <form>
                             <div class="form-group">
-                              <label for="codigo">Código</label>
-                              <input type="text" class="form-control" id="codigo" name="codigo">
+                                <label for="rut">Rut</label>
+                                <input type="text" class="form-control" id="rut" name="rut">
                             </div>
                             <div class="form-group">
-                              <label for="m2">M2</label>
-                              <input type="number" class="form-control" id="m2" name="m2">
+                                <label for="nombre_completo">Nombre Completo</label>
+                                <input type="text" class="form-control" id="nombre" name="nombre">
                             </div>
                             <div class="form-group">
-                              <label for="direccion">Dirección</label>
-                              <input type="text" class="form-control" id="direccion" name="direccion">
+                                <label for="fecha_nacimiento">fecha Nacimiento</label>
+                                <input type="date" class="form-control" id="fecha_nacimiento" name="fecha_nacimiento">
                             </div>
                             <div class="form-group">
-                              <label for="descripcion">Descripción</label>
-                              <textarea class="form-control" id="descripcion" name="descripcion"></textarea>
+                                <label for="correo">Correo</label>
+                                <input type="text" class="form-control" id="correo" name="correo">
                             </div>
-                            
                             <div class="form-group">
-                                <label>Oferta</label>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="oferta" id="venta" value="0" checked>
-                                    <label class="form-check-label" for="venta">
-                                      Venta
-                                    </label>
+                                <label for="telefono">Telefono</label>
+                                <input type="text" class="form-control" id="telefono" name="telefono">
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group-prepend">
+                                    <label for="sexo">Sexo</label>
                                 </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="oferta" id="arriendo" value="1" checked>
-                                    <label class="form-check-label" for="arriendo">
-                                      Arriendo
-                                    </label>
-                                </div>
-                            </div>
-                            
-                            <!-- en caso de arriendo -->
-                            
-                            <div class="form-group">
-                                <label for="tipo_arriendo">Tipo de Arriendo</label>
-                                <select class="form-control" id="tipo_arriendo" name="tipo_arriendo">
-                                    <option value="0" selected> Seleccione tipo de arriendo</option>
-                                    <option value="1">Año Corrido</option>
-                                    <option value="2">Marzo - Diciembre</option>
-                                    <option value="3">Diario</option>
+                                <select id="sexo" class="custom-select" id="sexo">
+                                    <option>Seleccionar</option>
+                                    <%
+
+                                        Connection con;
+                                        Conexion cn = new Conexion();
+                                        PreparedStatement ps;
+                                        ResultSet rs;
+
+                                        try {
+                                            con = cn.getConnection();
+                                            String SQL = "Select * from sexo";
+                                            ps = con.prepareStatement(SQL);
+                                            rs = ps.executeQuery();
+                                            while (rs.next()) {
+                                                out.println("<option values=" + rs.getString(1) + ">" + rs.getString(2) + "</option>");
+                                            }
+                                        } catch (Exception e) {
+
+                                        }
+
+                                    %>
                                 </select>
                             </div>
-                            
                             <div class="form-group">
-                              <label for="valor_arriendo">Valor Arriendo</label>
-                              <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                  <span class="input-group-text">$</span>
-                                </div>
-                                <input type="number" class="form-control" id="valor_arriendo" name="valor_arriendo">
-                              </div>
+                                <label for="telefono">Numero Propietario</label>
+                                <input type="text" class="form-control" id="numero_propietario" name="numero_propietario">
                             </div>
-                            
-                            <!-- en caso de venta -->
-                            
+                                
                             <div class="form-group">
-                              <label for="valor_venta">Valor Venta</label>
-                              <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                  <span class="input-group-text">UF</span>
-                                </div>
-                                <input type="number" class="form-control"  id="valor_venta">
-                              </div>
+                                <label for="telefono">Clave</label>
+                                <input type="password" class="form-control" id="clave" name="clave">
                             </div>
-                            
-                            <button type="submit" class="btn btn-primary btn-block">Guardar Propiedad</button>
+                            <button type="submit" class="btn btn-primary btn-block" href="javascript:;" onclick="addpropietario($('#rut').val(), $('#nombre').val(), $('#fecha_nacimiento').val(), $('#correo').val(), $('#telefono').val(), $('#sexo').val(), $('#numero_propietario').val(), $('#clave').val());return false;">Registrar</button>
+                            <!--<button type="submit" class="btn btn-primary btn-block">Registrar</button>-->
                         </form>
                     </div>
                 </div>
             </div>
-            
+                                <div id="resultado"></div>
         </div>
-        
-        
-        
-        
-        
+
+
+
+
+
 
         <!-- Optional JavaScript; choose one of the two! -->
 
@@ -120,85 +116,7 @@
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
         -->
+
         
-        <script>
-            
-            $(document).ready(function(){
-                cargarTabla();
-                setInterval(function(){
-                    cargarTabla();
-                },10000)
-            })
-            
-            function cargarTabla(){
-                $.ajax({
-                    method: "GET",
-                    url: "./Propiedades",
-                })
-                .done(function( msg ) {
-                    let respuesta = JSON.parse(msg);
-                    $("#tabla").empty();
-                    $.each(respuesta, function(index, propiedad){
-                        
-                        let html = `<tr>
-                                        <td>${propiedad.id}</td>
-                                        <td>${propiedad.codigo}</td>
-                                        <td>${propiedad.m2}</td>
-                                        <td>${propiedad.direccion}</td>
-                                        <td>${propiedad.descripcion}</td>
-                                        <td>${propiedad.oferta}</td>
-                                        <td>${propiedad.valor_arriendo}</td>
-                                        <td>`
-                        if(propiedad.imagen_arriendo != ""){
-                            html += `<img src="data:image/png;base64, ${propiedad.imagen_arriendo}" class="img-fluid"/>`
-                        }
-                                
-                        html +=`    </td>
-                                </tr>`;
-                        
-                        $("#tabla").append(html);
-                    })
-                    
-                    console.log( respuesta );
-                });
-            }
-              
-            $("#form-guardar").on('submit', function(evento){
-                evento.preventDefault();
-                
-                            //$('#codigo').val("14"); //GET
-                /*let codigo = $('#codigo').val(); //SET
-                let m2 = $('#m2').val();
-                let direccion = $('#direccion').val();
-                let descripcion = $('#descripcion').val();
-                let venta = $('#venta').val();
-                let arriendo = $('#arriendo').val();
-                let tipo_arriendo = $('#tipo_arriendo').val();
-                let valor_arriendo = $('#valor_arriendo').val();
-                let valor_venta = $('#valor_venta').val();
-                
-                let data = {
-                    "codigo": codigo,
-                    "m2": m2,
-                    "direccion": direccion,
-                    "descripcion": descripcion,
-                    "venta": venta,
-                    "arriendo": arriendo,
-                    "tipo_arriendo": tipo_arriendo,
-                    "valor_arriendo": valor_arriendo,
-                    "valor_venta": valor_venta
-                }*/
-                
-                $.ajax({
-                    method: "POST",
-                    url: $(this).attr("action"),
-                    data: $(this).serialize()
-                })
-                .done(function( msg ) {
-                    alert( msg );
-                });
-            })
-            
-        </script>
     </body>
 </html>

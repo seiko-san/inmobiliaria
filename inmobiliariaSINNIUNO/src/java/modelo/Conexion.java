@@ -16,7 +16,7 @@ public class Conexion {
     
     public String username = "root";
     public String password = "";
-     public static final String hostname = "localhost";
+    public static final String hostname = "localhost";
     public String port = "3306";
     public String database = "inmobiliaria";
     public String driver = "com.mysql.jdbc.Driver";

@@ -16,6 +16,10 @@
         <servlet-name>CrearUsuario</servlet-name>
         <servlet-class>controlador.CrearUsuario</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Registro_Propietario</servlet-name>
+        <servlet-class>controlador.Registro_Propietario</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Controlador</servlet-name>
         <url-pattern>/Controlador</url-pattern>
@@ -29,8 +33,8 @@
         <url-pattern>/crearpropiedad</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>CrearUsuario</servlet-name>
-        <url-pattern>/CrearUsuario</url-pattern>
+        <servlet-name>Registro_Propietario</servlet-name>
+        <url-pattern>/Registro_Propietario</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

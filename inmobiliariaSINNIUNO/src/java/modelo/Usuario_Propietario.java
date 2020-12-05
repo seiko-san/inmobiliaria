@@ -18,7 +18,7 @@ public class Usuario_Propietario {
     private String fecha;
     private String correo;
     private String clave;
-    private String sexo;
+    private int sexo;
     private String telefono;
     private String numero_propiedad;
 
@@ -73,11 +73,11 @@ public class Usuario_Propietario {
         this.clave = clave;
     }
 
-    public String getSexo() {
+    public int getSexo() {
         return sexo;
     }
 
-    public void setSexo(String sexo) {
+    public void setSexo(int sexo) {
         this.sexo = sexo;
     }
 

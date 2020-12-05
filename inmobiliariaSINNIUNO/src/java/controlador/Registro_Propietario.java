@@ -7,19 +7,17 @@ package controlador;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import static java.lang.System.out;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import modelo.Usuario;
-import modelo.UsuarioConect;
-import modelo.nuevousuario;
-
+import modelo.Usuario_Propietario;
 /**
  *
- * @author seiko
+ * @author Law
  */
-public class CrearUsuario extends HttpServlet {
+public class Registro_Propietario extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,35 +31,56 @@ public class CrearUsuario extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        nuevousuario nu = new nuevousuario();
-//        String accion = request.getParameter("accion");
-        String rut = request.getParameter("txtrut");
-        String nombre = request.getParameter("txtnombre");
-        String apellido = request.getParameter("txtapellido");
-        String tipo = request.getParameter("txttipo");
-        String fecha = request.getParameter("txtfecha");
-        String correo = request.getParameter("txtcorreo");
-        String clave = request.getParameter("txtclave");
-        String sexo = request.getParameter("txtsexo");
-        String telefono = request.getParameter("txttelefono");
+        PrintWriter out = response.getWriter();
         
-        UsuarioConect cone = new UsuarioConect();
-        Usuario us = new Usuario();
+        String rut = request.getParameter("rut");
+        String nombre = request.getParameter("nombre");
+        String fecha = request.getParameter("fecha");
+        String correo = request.getParameter("correo");
+        String telefono = request.getParameter("telefono");
+        String sexo = request.getParameter("sexo");
+        String n_propietario = request.getParameter("numero_propietario");
+        String clave = request.getParameter("clave");
+
+        if(rut.isEmpty() || nombre.isEmpty() || fecha.isEmpty() || correo.isEmpty()
+                || telefono.isEmpty() || sexo.isEmpty() || n_propietario.isEmpty()
+                || clave.isEmpty()){
+            
+             out.println("<center>Debe rellenar los campos<center>");
+        }else{
+            
+            int sex = Integer.parseInt(sexo);
+            int numero_p = Integer.parseInt(n_propietario);
+            
+            Usuario_Propietario propietario = new Usuario_Propietario();
+            
+            propietario.setRut(rut);
+            propietario.setNombre(nombre);
+            propietario.setFecha(fecha);
+            propietario.setCorreo(correo);
+            propietario.setTelefono(telefono);
+            propietario.setSexo(sex);
+            propietario.setNumero_propiedad(nombre);
+            propietario.setNombre(nombre);
+            
+            
+        }
         
         
         
-//        try (PrintWriter out = response.getWriter()) {
-//            /* TODO output your page here. You may use following sample code. */
+        
+
+            /* TODO output your page here. You may use following sample code. */
 //            out.println("<!DOCTYPE html>");
 //            out.println("<html>");
 //            out.println("<head>");
-//            out.println("<title>Servlet CrearUsuario</title>");            
+//            out.println("<title>Servlet Registro_Propietario</title>");            
 //            out.println("</head>");
 //            out.println("<body>");
-//            out.println("<h1>Servlet CrearUsuario at " + request.getContextPath() + "</h1>");
+//            out.println("<h1>Servlet Registro_Propietario at " + rut + "</h1>");
 //            out.println("</body>");
 //            out.println("</html>");
-        }
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -77,6 +96,7 @@ public class CrearUsuario extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
+ 
     }
 
     /**
@@ -91,6 +111,7 @@ public class CrearUsuario extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
+
     }
 
     /**
