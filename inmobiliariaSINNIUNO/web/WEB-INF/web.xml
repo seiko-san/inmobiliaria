@@ -12,23 +12,31 @@
         <servlet-name>NuevoInmobiliario</servlet-name>
         <servlet-class>controlador.NuevoInmobiliario</servlet-class>
         <multipart-config>
-        <location>/tmp</location>
-        <max-file-size>208448820</max-file-size>
-        <max-request-size>418018841</max-request-size>
-        <file-size-threshold>1048576</file-size-threshold>
+            <location>/tmp</location>
+            <max-file-size>208448820</max-file-size>
+            <max-request-size>418018841</max-request-size>
+            <file-size-threshold>1048576</file-size-threshold>
         </multipart-config>
+    </servlet>
+    <servlet>
+        <servlet-name>Agregar_Inmueble</servlet-name>
+        <servlet-class>controlador.Agregar_Inmueble</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Controlador</servlet-name>
-        <url-pattern>/Controlador</url-pattern>
+        <url-pattern>/Ingreso_Usuarios</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>Registro_Propietario</servlet-name>
         <url-pattern>/Registro_Propietario</url-pattern>
     </servlet-mapping>
-        <servlet-mapping>
+    <servlet-mapping>
         <servlet-name>NuevoInmobiliario</servlet-name>
         <url-pattern>/NuevoInmobiliario</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Agregar_Inmueble</servlet-name>
+        <url-pattern>/Agregar_Inmueble</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
