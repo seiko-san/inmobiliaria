@@ -30,7 +30,7 @@
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <link href="css/estilo.css" rel="stylesheet" type="text/css"/>  
-
+        <script src="js/inmobiliario.js" type="text/javascript"></script>
         <div id="fondo"> <br>
             <div class="toggled">
                 <!-- Sidebar -->
@@ -44,7 +44,7 @@
 
                         </div>
                         <!--<form method="POST" enctype="multipart/form-data" >  </form>-->
-                        <form id="frminmobiliario" class="form" method="post" action="NuevoInmobiliario" inctype="multipart/form-data" >
+                        <form id="frminmobiliario" class="form" method="post" action="NuevoInmobiliario" enctype="multipart/form-data" >
                             <div class="tab-content" id="myTabContent">
                                 <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                                     <h3 class="register-heading  text-white">Inmobiliaria SINNIUNO</h3>
@@ -129,58 +129,7 @@
             </div>
         </div>
         <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-        <script>
-
-            $(document).ready(function () {
-                // AGREGAR TODO EL CODIGO GENIAL QUE QUEREMOS
-
-                $("#frminmobiliario").on('submit', function (e) {
-                    e.preventDefault();
-
-                    //CREAR FORMULARIO POR JAVASCRIPT
-                    let formulario = new FormData();
-
-                    //OBTENIENDO VALORES DESDE INPUT DE HTML
-                    let rut = $("#rut").val();
-                    let nombre = $("#nombre").val();
-                    let apellido = $("#apellido").val();
-                    let fecha = $("#fecha_nacimiento").val();
-                    let correo = $("#correo").val();
-                    let clave = $("#clave").val();
-                    let sexo = $("#sexo").val();
-                    let telefono = $("#telefono").val();
-                    let archivos = $("#archivos")[0].files;
-
-                    //CREANDO INPUTS EN FORMULARIO
-                    formulario.append('rut', rut);
-                    formulario.append('nombre', nombre);
-                    formulario.append('apellido', apellido);
-                    formulario.append('fecha_nacimiento', fecha);
-                    formulario.append('correo', correo);
-                    formulario.append('clave', clave);
-                    formulario.append('sexo', sexo);
-                    formulario.append('telefono', telefono);
-                    if (archivos.length > 0) {
-                        formulario.append('archivos', archivos[0]);
-
-                        $.ajax({
-                            url: $(this).attr("action"),
-                            type: $(this).attr("method"),
-                            data: formulario,
-                            contentType: false,
-                            processData: false,
-                            success: function (resp) {
-                                console.log(resp);
-                                console.log(archivos)
-                            }
-                        });
-                    }
-
-                });
-
-            });
-
-        </script>                                         
+                                                 
     </body>
 </html>
 

@@ -19,6 +19,7 @@
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
         <script src="js/propietario.js" type="text/javascript"></script>
+        <script src="js/validaciones.js" type="text/javascript"></script>
         <title>Registrar Propietario</title>
     </head>
     <body>
@@ -36,8 +37,10 @@
                         <form>
                             <div class="form-group">
                                 <label for="rut">Rut</label>
-                                <input type="text" class="form-control" id="rut"  name="rut">
+                                <input type="text" class="form-control" id="rut"  name="rut" >
+                                
                             </div>
+
                             <div class="form-group">
                                 <label for="nombre_completo">Nombre Completo</label>
                                 <input type="text" class="form-control" id="nombre" name="nombre">
@@ -86,7 +89,7 @@
                                 <label for="telefono">Numero Propietario</label>
                                 <input type="text" class="form-control" id="numero_propietario" name="numero_propietario">
                             </div>
-                                
+
                             <div class="form-group">
                                 <label for="telefono">Clave</label>
                                 <input type="password" class="form-control" id="clave" name="clave">
@@ -95,10 +98,10 @@
                             <!--<button type="submit" class="btn btn-primary btn-block">Registrar</button>-->
                         </form>
                     </div>
-                                <div id="resultado"></div>
+                    <div id="resultado"></div>
                 </div>
             </div>
-                                
+
         </div>
 
 
@@ -118,6 +121,6 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
         -->
 
-        
+
     </body>
 </html>

@@ -47,10 +47,10 @@
                         <a href="#">Inicio</a>
                     </li>
                     <li>
-                        <a href="#" onclick="javascript:vistainmueble();">Gestor Inmueble</a>
+                        <a href="#" onclick="javascript:vistapropietario();">Gestor Propietario</a>
                     </li>
                     <li>
-                        <a href="#">Gestor Inmobiliario</a>
+                        <a href="#" onclick="javascript:vistainmobiliario();">Gestor Inmobiliario</a>
                     </li>
                 </ul>
 
