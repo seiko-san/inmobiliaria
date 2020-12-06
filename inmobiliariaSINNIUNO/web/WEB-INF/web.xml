@@ -11,6 +11,12 @@
     <servlet>
         <servlet-name>NuevoInmobiliario</servlet-name>
         <servlet-class>controlador.NuevoInmobiliario</servlet-class>
+        <multipart-config>
+        <location>/tmp</location>
+        <max-file-size>208448820</max-file-size>
+        <max-request-size>418018841</max-request-size>
+        <file-size-threshold>1048576</file-size-threshold>
+        </multipart-config>
     </servlet>
     <servlet-mapping>
         <servlet-name>Controlador</servlet-name>

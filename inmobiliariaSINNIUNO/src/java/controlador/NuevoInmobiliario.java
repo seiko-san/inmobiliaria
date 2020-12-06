@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
-import modelo.Usuario_Free;
+import modelo.Agregar_Inmobiliario;
 import modelo.Usuario_Free;
 
 /**
@@ -35,29 +35,68 @@ public class NuevoInmobiliario extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         
-        
         String rut = request.getParameter("rut");
         String nombre = request.getParameter("nombre");
-        String apellido = request.getParameter("apellido");
-        String fecha = request.getParameter("fecha");
+        String fecha = request.getParameter("fecha_nacimiento");
         String correo = request.getParameter("correo");
         String clave = request.getParameter("clave");
         String telefono = request.getParameter("telefono");
+        String sexo = request.getParameter("sexo");
         Part archivos = request.getPart("archivos");
-
+        
+        int sex = Integer.parseInt(sexo);
+        
         InputStream inputStream = null;
-
-        if (archivos != null) {
+        
+        if(archivos != null){
             inputStream = archivos.getInputStream();
-            System.out.println(inputStream);
-            Usuario_Free usuario = new Usuario_Free();
+            Agregar_Inmobiliario agregar = new Agregar_Inmobiliario();
+            
+            Usuario_Free usuario = new Usuario_Free(rut, nombre, fecha ,correo, sex ,clave, telefono);
+            agregar.GuardarInmobiliario(usuario, inputStream);
 
-            try (PrintWriter out = response.getWriter()) {
-                out.print(usuario.guardarImagen(inputStream, 2));
-            }
         }
+        
+ 
+        
+//        int sex = Integer.parseInt(sexo);
+//        
+//        Usuario_Free inmobiliario = new Usuario_Free();
+        
+//        inmobiliario.setRut(rut);
+//        inmobiliario.setNombre(nombre);
+//        inmobiliario.setFechanac(fecha);
+//        inmobiliario.setCorreo(correo);
+//        inmobiliario.setTelefono(telefono);
+//        inmobiliario.setSexo(sex);
+//        inmobiliario.setClave(clave);
+        //inmobiliario.setAntecedentes(archivos);
+        
+        
+        
+        
+//        System.out.println(rut);
+//        System.out.println(nombre);
+//        System.out.println(fecha);
+//        System.out.println(correo);
+//        System.out.println(clave);
+//        System.out.println(telefono);
+//        System.out.println(sexo);
+//        System.out.println(archivos);
 
-        System.out.println("EN POST");
+//        InputStream inputStream = null;
+//
+//        if (archivos != null) {
+//            inputStream = archivos.getInputStream();
+//            System.out.println(inputStream);
+//            Usuario_Free usuario = new Usuario_Free();
+//
+//            try (PrintWriter out = response.getWriter()) {
+//                out.print(usuario.guardarImagen(inputStream, 2));
+//            }
+//        }
+//
+//        System.out.println("EN POST");
 
 //        try (PrintWriter out = response.getWriter()) {
 //            /* TODO output your page here. You may use following sample code. */

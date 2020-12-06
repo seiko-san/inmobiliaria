@@ -30,7 +30,7 @@
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <link href="css/estilo.css" rel="stylesheet" type="text/css"/>  
-        
+
         <div id="fondo"> <br>
             <div class="toggled">
                 <!-- Sidebar -->
@@ -44,18 +44,18 @@
 
                         </div>
                         <!--<form method="POST" enctype="multipart/form-data" >  </form>-->
-                        <form id="frminmobiliario" class="form" method="post" action="NuevoInmobiliario" nctype="multipart/form-data" >
+                        <form id="frminmobiliario" class="form" method="post" action="NuevoInmobiliario" inctype="multipart/form-data" >
                             <div class="tab-content" id="myTabContent">
                                 <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                                     <h3 class="register-heading  text-white">Inmobiliaria SINNIUNO</h3>
                                     <div class="row register-form">
                                         <div class="col-md-6 shadow">
-                                            
+
                                             <div class="form-group">
                                                 <label class="text-white" for="rut">Ingrese su Rut:</label>
                                                 <input type="text" class="form-control" id="rut" name="rut">
                                             </div>
-                                            
+
                                             <div class="form-group" >
                                                 <label class="text-white" for="nombre">Ingrese su Nombre:</label>
                                                 <input type="text" class="form-control"  name="nombre" id="nombre"/>
@@ -63,7 +63,7 @@
 
                                             <div class="form-group">
                                                 <label class="text-white" for="fecha">Fecha de Nacimiento:</label>
-                                                <input type="text" class="form-control" name="fecha_nacimiento" id="fecha_nacimiento"/>
+                                                <input type="date" class="form-control" name="fecha_nacimiento" id="fecha_nacimiento"/>
                                             </div>
                                             <div class="form-group">
                                                 <label class="text-white" for="correo">Ingrese su Correo:</label>
@@ -93,7 +93,7 @@
                                                             rs = ps.executeQuery();
 
                                                             while (rs.next()) {
-                                                                out.println("<option value= "+rs.getString(1)+">" + rs.getString(2) + "</option>");
+                                                                out.println("<option value= " + rs.getString(1) + ">" + rs.getString(2) + "</option>");
 
                                                             }
 
@@ -116,7 +116,7 @@
                                                 <input type="file"name="file[]" id="archivos" class="form-contralue btn-outline-success" multiple/>
                                             </div><br>
                                             <button type="submit" name="accion" class="btn btn-primary border-white" value="Crear">Crear Usuario</button>
-                                           <!--<button type="submit" class="btn btn-primary btn-block" href="javascript:;" onclick="addinmobiliario($('#rut').val(), $('#nombre').val(), $('#fecha_nacimiento').val(), $('#correo').val(), $('#telefono').val(), $('#sexo').val(), $('#archivos').val(), $('#clave').val());return false;">Registrar</button>-->
+                                            <!--<button type="submit" class="btn btn-primary btn-block" href="javascript:;" onclick="addinmobiliario($('#rut').val(), $('#nombre').val(), $('#fecha_nacimiento').val(), $('#correo').val(), $('#telefono').val(), $('#sexo').val(), $('#archivos').val(), $('#clave').val());return false;">Registrar</button>-->
 
                                         </div>
                                     </div>
@@ -144,7 +144,7 @@
                     let rut = $("#rut").val();
                     let nombre = $("#nombre").val();
                     let apellido = $("#apellido").val();
-                    let fecha = $("#fecha").val();
+                    let fecha = $("#fecha_nacimiento").val();
                     let correo = $("#correo").val();
                     let clave = $("#clave").val();
                     let sexo = $("#sexo").val();
@@ -155,23 +155,27 @@
                     formulario.append('rut', rut);
                     formulario.append('nombre', nombre);
                     formulario.append('apellido', apellido);
-                    formulario.append('fecha', fecha);
+                    formulario.append('fecha_nacimiento', fecha);
                     formulario.append('correo', correo);
                     formulario.append('clave', clave);
-                    formulario.append('sexo' , sexo);
+                    formulario.append('sexo', sexo);
                     formulario.append('telefono', telefono);
-                    formulario.append('archivos', archivos);
+                    if (archivos.length > 0) {
+                        formulario.append('archivos', archivos[0]);
 
-                    $.ajax({
-                        url: $(this).attr("action"),
-                        type: $(this).attr("method"),
-                        data: formulario,
-                        contentType: false,
-                        processData: false,
-                        success: function (resp) {
-                            console.log(resp);
-                        }
-                    })
+                        $.ajax({
+                            url: $(this).attr("action"),
+                            type: $(this).attr("method"),
+                            data: formulario,
+                            contentType: false,
+                            processData: false,
+                            success: function (resp) {
+                                console.log(resp);
+                                console.log(archivos)
+                            }
+                        });
+                    }
+
                 });
 
             });
