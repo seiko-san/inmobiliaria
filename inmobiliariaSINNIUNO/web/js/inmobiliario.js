@@ -1,8 +1,11 @@
 /* 
- * Autor: Thelaw
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
 
-function addpropietario(rut, nombre, fecha, correo, telefono, sexo, numero_propietario, clave) {
+
+function addinmobiliario(rut, nombre, fecha, correo, telefono, sexo, archivos, clave) {
     var detener = 2500;
     let datos = {
 
@@ -12,7 +15,7 @@ function addpropietario(rut, nombre, fecha, correo, telefono, sexo, numero_propi
         "correo": correo,
         "telefono": telefono,
         "sexo": sexo,
-        "numero_propietario": numero_propietario,
+        "numero_propietario": archivos[0].file[0],
         "clave": clave
 
     };
@@ -29,7 +32,7 @@ function addpropietario(rut, nombre, fecha, correo, telefono, sexo, numero_propi
 
                 $('#rut').val('');
                 $('#nombre').val('');
-                $('#fecha_nacimiento').val('');
+                $('#fecha').val('');
                 $('#correo').val('');
                 $('#telefono').val('');
                 $('#sexo').val('');

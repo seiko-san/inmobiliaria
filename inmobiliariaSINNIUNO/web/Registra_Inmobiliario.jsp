@@ -30,7 +30,7 @@
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <link href="css/estilo.css" rel="stylesheet" type="text/css"/>  
-
+        
         <div id="fondo"> <br>
             <div class="toggled">
                 <!-- Sidebar -->
@@ -50,25 +50,24 @@
                                     <h3 class="register-heading  text-white">Inmobiliaria SINNIUNO</h3>
                                     <div class="row register-form">
                                         <div class="col-md-6 shadow">
+                                            
                                             <div class="form-group">
                                                 <label class="text-white" for="rut">Ingrese su Rut:</label>
-                                                <input type="text" class="form-control" placeholder="Ingrese su rut" id="rut" name="txtrut">
+                                                <input type="text" class="form-control" id="rut" name="rut">
                                             </div>
+                                            
                                             <div class="form-group" >
-                                                <label class="text-white" for="rut">Ingrese su Nombre:</label>
-                                                <input type="text" class="form-control" placeholder="Ingrese su Nombre" name="txtnombre" id="nombre"/>
+                                                <label class="text-white" for="nombre">Ingrese su Nombre:</label>
+                                                <input type="text" class="form-control"  name="nombre" id="nombre"/>
                                             </div>
-                                            <div class="form-group" >
-                                                <label class="text-white" for="rut">Ingrese su Apellido:</label>
-                                                <input type="text" class="form-control" placeholder="Ingrese su Apellido" value="" name="txtapellido" id="apellido"/>
+
+                                            <div class="form-group">
+                                                <label class="text-white" for="fecha">Fecha de Nacimiento:</label>
+                                                <input type="text" class="form-control" name="fecha_nacimiento" id="fecha_nacimiento"/>
                                             </div>
                                             <div class="form-group">
-                                                <label class="text-white" for="rut">Fecha de Nacimiento:</label>
-                                                <input type="text" class="form-control" name="txtfecha" placeholder="fecha" value="" id="fecha"/>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="text-white" for="rut">Ingrese su Correo:</label>
-                                                <input type="text" class="form-control" name="txtcorreo"  placeholder="Ingrese su correo" id="correo" />
+                                                <label class="text-white" for="correo">Ingrese su Correo:</label>
+                                                <input type="text" class="form-control" name="correo"  placeholder="Ingrese su correo" id="correo" />
                                             </div>
                                         </div>
 
@@ -77,14 +76,16 @@
 
 
                                             <div class="form-group">
-                                                <label class="text-white" for="rut">Ingrese su Contraseña:</label>
-                                                <input type="password" class="form-control" name="txtclave"  placeholder="Ingrese su clave" id="clave" />
+                                                <label class="text-white" for="clave">Ingrese su Contraseña:</label>
+                                                <input type="password" class="form-control" name="clave" id="clave" />
                                             </div>
                                             <div class="form-group">
-                                                <label class="text-white" for="rut">Seleccione su Sexo:</label>
-                                                <select class="form-control" id="sexo" name="txtsexo">
+                                                <label class="text-white" for="sexo">Seleccione su Sexo:</label>
+                                                <select class="form-control" id="sexo" name="sexo">
+                                                    <option value="0">Selecciona Sexo</option>
 
-                                                    <%String sql2 = "select nombre_sexo from sexo;";
+                                                    <%
+                                                        String sql2 = "select * from sexo;";
                                                         try {
                                                             con = cn.getConnection();
                                                             ps = con.prepareStatement(sql2);
@@ -92,7 +93,7 @@
                                                             rs = ps.executeQuery();
 
                                                             while (rs.next()) {
-                                                                out.println("<option>" + rs.getString("nombre_sexo") + "</option>");
+                                                                out.println("<option value= "+rs.getString(1)+">" + rs.getString(2) + "</option>");
 
                                                             }
 
@@ -106,8 +107,8 @@
 
                                             </div>
                                             <div class="form-group">
-                                                <label class="text-white" for="rut">Ingrese su Telefono:</label>
-                                                <input type="text" class="form-control" name="txttelefono"  placeholder="Ingrese su Telefono" id="telefono" />
+                                                <label class="text-white" for="telefono">Ingrese su Telefono:</label>
+                                                <input type="text" class="form-control" name="telefono"  id="telefono" />
                                             </div>
                                             <div class="form-group">
                                                 <label class="text-white" for="rut">Agregue Certificado:</label><br>
@@ -115,6 +116,8 @@
                                                 <input type="file"name="file[]" id="archivos" class="form-contralue btn-outline-success" multiple/>
                                             </div><br>
                                             <button type="submit" name="accion" class="btn btn-primary border-white" value="Crear">Crear Usuario</button>
+                                           <!--<button type="submit" class="btn btn-primary btn-block" href="javascript:;" onclick="addinmobiliario($('#rut').val(), $('#nombre').val(), $('#fecha_nacimiento').val(), $('#correo').val(), $('#telefono').val(), $('#sexo').val(), $('#archivos').val(), $('#clave').val());return false;">Registrar</button>-->
+
                                         </div>
                                     </div>
                                 </div>

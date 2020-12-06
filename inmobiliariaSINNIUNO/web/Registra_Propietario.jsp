@@ -36,7 +36,7 @@
                         <form>
                             <div class="form-group">
                                 <label for="rut">Rut</label>
-                                <input type="text" class="form-control" id="rut" name="rut">
+                                <input type="text" class="form-control" id="rut"  name="rut">
                             </div>
                             <div class="form-group">
                                 <label for="nombre_completo">Nombre Completo</label>
@@ -58,7 +58,7 @@
                                 <div class="input-group-prepend">
                                     <label for="sexo">Sexo</label>
                                 </div>
-                                <select id="sexo" class="custom-select" id="sexo">
+                                <select id="sexo" class="custom-select">
                                     <option>Seleccionar</option>
                                     <%
 
@@ -73,7 +73,7 @@
                                             ps = con.prepareStatement(SQL);
                                             rs = ps.executeQuery();
                                             while (rs.next()) {
-                                                out.println("<option values=" + rs.getString(1) + ">" + rs.getString(2) + "</option>");
+                                                out.println("<option value=" + rs.getString(1) + ">" + rs.getString(2) + "</option>");
                                             }
                                         } catch (Exception e) {
 
@@ -95,9 +95,10 @@
                             <!--<button type="submit" class="btn btn-primary btn-block">Registrar</button>-->
                         </form>
                     </div>
+                                <div id="resultado"></div>
                 </div>
             </div>
-                                <div id="resultado"></div>
+                                
         </div>
 
 
