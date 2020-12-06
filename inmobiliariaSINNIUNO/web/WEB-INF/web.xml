@@ -5,32 +5,24 @@
         <servlet-class>controlador.Ingreso_Usuarios</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>PropiedadesServlet</servlet-name>
-        <servlet-class>Servlet.PropiedadesServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>CrearUsuario</servlet-name>
-        <servlet-class>controlador.CrearUsuario</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>Registro_Propietario</servlet-name>
         <servlet-class>controlador.Registro_Propietario</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>NuevoInmobiliario</servlet-name>
+        <servlet-class>controlador.NuevoInmobiliario</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Controlador</servlet-name>
         <url-pattern>/Controlador</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>PropiedadesServlet</servlet-name>
-        <url-pattern>/PropiedadesServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>NuevaPropiedad</servlet-name>
-        <url-pattern>/crearpropiedad</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>Registro_Propietario</servlet-name>
         <url-pattern>/Registro_Propietario</url-pattern>
+    </servlet-mapping>
+        <servlet-mapping>
+        <servlet-name>NuevoInmobiliario</servlet-name>
+        <url-pattern>/NuevoInmobiliario</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
