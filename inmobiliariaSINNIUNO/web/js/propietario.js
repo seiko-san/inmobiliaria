@@ -41,3 +41,30 @@ function addpropietario(rut, nombre, fecha, correo, telefono, sexo, numero_propi
         }
     });
 }
+
+function modificar(estado,rut) {
+    
+//    alert(estado);
+//    alert(rut);
+    var detener = 2500;
+    let datos = {
+
+        "estado": estado,
+        "rut": rut
+    };
+    $.ajax({
+        data: datos,
+        url: 'Modifica_Estado_Propietario',
+        type: 'POST',
+        beforeSend: function () {
+            $('#resultado').html('<div class="loading" align="center"><img src="img/carga.svg" alt="loading" /><br/>Un momento, por favor...</div>');
+        },
+        success: function (response) { //una vez que el archivo recibe el request lo procesa y lo devuelve
+            setTimeout(function () {
+                $("#resultado").html(response);
+
+            }, detener
+                    );
+        }
+    });
+}

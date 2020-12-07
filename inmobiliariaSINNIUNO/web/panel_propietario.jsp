@@ -3,6 +3,10 @@
     Created on : 05-dic-2020, 14:36:30
     Author     : Seiko
 --%>
+
+
+
+
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="modelo.Conexion"%>
@@ -10,6 +14,8 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
+
+
     <title>Panel Propietario</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -32,7 +38,7 @@
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <link href="css/estilo.css" rel="stylesheet" type="text/css"/>  
-
+        <script src="js/logout.js" type="text/javascript"></script>
         <!-- Sidebar/menu -->
         <nav class="w3-sidebar w3-red w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:300px;font-weight:bold;" id="mySidebar"><br>
             <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft" style="width:100%;font-size:22px">Close Menu</a>
@@ -40,11 +46,48 @@
                 <h3 class="w3-padding-64"><b>Inmobiliaria<br>SINNIUNO</b></h3>
             </div>
             <div class="w3-bar-block">
-                <a href="#" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Inicio</a> 
-                <a href="#showcase" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Inmobiliarios</a> 
-                <a href="#services" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Servicios</a> 
-                <a href="#designers" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Agregar Inmueble</a>
-                <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Contacto</a>
+                
+                
+                <%
+                    
+                    
+                    String SQL1 = "select nombre_usuario from usuarios where rut_usuario = '" + request.getSession().getAttribute("nick") + "'";
+
+                    con = cn.getConnection();
+                    ps = con.prepareStatement(SQL1);
+                    rs = ps.executeQuery();
+                    
+                while (rs.next()) {
+                    
+                
+                        
+                   %>     
+                       <p>Usuario: <%=rs.getString("nombre_usuario")%> </p>   
+
+                
+                
+                <%
+                     }
+                %>
+              
+                
+                <a href="http://localhost:8080/inmobiliariaSINNIUNO/Ingreso_Usuarios"  class="w3-bar-item w3-button w3-hover-white">Inicio</a> 
+
+                <%
+                    
+                    
+                    String SQL = "select * from usuarios where rut_usuario = '" + request.getSession().getAttribute("nick") + "'";
+
+                    con = cn.getConnection();
+                    ps = con.prepareStatement(SQL);
+                    rs = ps.executeQuery();
+
+                %>
+
+
+                <a href="#showcase" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Agregar Antecedentes</a> 
+                <a href="#services" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Listar Antecedentes</a> 
+                <a href="#" onclick="salir()" class="w3-bar-item w3-button w3-hover-white">Salir</a>
             </div>
         </nav>
 
@@ -60,47 +103,7 @@
         <!-- !PAGE CONTENT! -->
         <div class="w3-main" style="margin-left:340px;margin-right:40px">
 
-            <!-- Header -->
-            <div class="w3-container" style="margin-top:80px" id="showcase">
-                <h1 class="w3-jumbo"><b>Interior Design</b></h1>
-                <h1 class="w3-xxxlarge w3-text-red"><b>Showcase.</b></h1>
-                <hr style="width:50px;border:5px solid red" class="w3-round">
-            </div>
 
-            <!-- Photo grid (modal) -->
-            <div class="w3-row-padding">
-                <div class="w3-half">
-                    <img src="/w3images/kitchenconcrete.jpg" style="width:100%" onclick="onClick(this)" alt="Concrete meets bricks">
-                    <img src="/w3images/livingroom.jpg" style="width:100%" onclick="onClick(this)" alt="Light, white and tight scandinavian design">
-                    <img src="/w3images/diningroom.jpg" style="width:100%" onclick="onClick(this)" alt="White walls with designer chairs">
-                </div>
-
-                <div class="w3-half">
-                    <img src="/w3images/atrium.jpg" style="width:100%" onclick="onClick(this)" alt="Windows for the atrium">
-                    <img src="/w3images/bedroom.jpg" style="width:100%" onclick="onClick(this)" alt="Bedroom and office in one space">
-                    <img src="/w3images/livingroom2.jpg" style="width:100%" onclick="onClick(this)" alt="Scandinavian design">
-                </div>
-            </div>
-
-            <!-- Modal for full size images on click-->
-            <div id="modal01" class="w3-modal w3-black" style="padding-top:0" onclick="this.style.display = 'none'">
-                <span class="w3-button w3-black w3-xxlarge w3-display-topright">×</span>
-                <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
-                    <img id="img01" class="w3-image">
-                    <p id="caption"></p>
-                </div>
-            </div>
-
-            <!-- Services -->
-            <div class="w3-container" id="services" style="margin-top:75px">
-                <h1 class="w3-xxxlarge w3-text-red"><b>Services.</b></h1>
-                <hr style="width:50px;border:5px solid red" class="w3-round">
-                <p>We are a interior design service that focus on what's best for your home and what's best for you!</p>
-                <p>Some text about our services - what we do and what we offer. We are lorem ipsum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-                    dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor
-                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                </p>
-            </div>
 
             <!-- Designers -->
             <form id="NuevoInmueble" class="form" id="FrmAgregarINM" method="post" action="Agregar_Inmueble">
@@ -115,8 +118,7 @@
                                 <label class="text" for="tipo">Tipo Propiedad</label>
                                 <select class="form-control" id="tipo" name="tipo">
                                     <option value="0">Selecciona Tipo Propiedad</option>
-                                    <%
-                                        String sql2 = "select * from tipo_propiedad;";
+                                    <%                                        String sql2 = "select * from tipo_propiedad;";
                                         try {
                                             con = cn.getConnection();
                                             ps = con.prepareStatement(sql2);

@@ -21,6 +21,7 @@ public class Usuario_Propietario {
     private int sexo;
     private String telefono;
     private String numero_propiedad;
+    private String estado;
 
     public Usuario_Propietario() {
     }
@@ -95,6 +96,14 @@ public class Usuario_Propietario {
 
     public void setNumero_propiedad(String numero_propiedad) {
         this.numero_propiedad = numero_propiedad;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
     }
     
     

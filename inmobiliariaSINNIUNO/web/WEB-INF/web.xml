@@ -22,6 +22,14 @@
         <servlet-name>Agregar_Inmueble</servlet-name>
         <servlet-class>controlador.Agregar_Inmueble</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Modifica_Estado_Propietario</servlet-name>
+        <servlet-class>controlador.Modifica_Estado_Propietario</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Logout</servlet-name>
+        <servlet-class>controlador.Logout</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Controlador</servlet-name>
         <url-pattern>/Ingreso_Usuarios</url-pattern>
@@ -37,6 +45,14 @@
     <servlet-mapping>
         <servlet-name>Agregar_Inmueble</servlet-name>
         <url-pattern>/Agregar_Inmueble</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Modifica_Estado_Propietario</servlet-name>
+        <url-pattern>/Modifica_Estado_Propietario</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Logout</servlet-name>
+        <url-pattern>/Logout</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

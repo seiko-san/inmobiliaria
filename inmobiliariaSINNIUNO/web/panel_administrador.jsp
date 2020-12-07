@@ -22,9 +22,9 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js"></script>
         <link href="css/styleAdmin.css" rel="stylesheet">
         <script src="js/menu.js" type="text/javascript"></script>
-
-
-
+        <script src="js/actualizar_propietario.js" type="text/javascript"></script>
+        <script src="js/propietario.js" type="text/javascript"></script>
+        <script src="js/logout.js" type="text/javascript"></script>
         <title>Administrador</title>
 
 
@@ -41,8 +41,8 @@
                     <h3>INMOBILIARIA</h3>
                 </div>
                 <ul class="lisst-unstyled components">
-
-                    <p>Usuario: ${nick}</p>
+<!--<%//${nick}%>-->
+                    <p>Usuario: <%= request.getSession().getAttribute("nick")%></p>
                     <li >
                         <a href="#">Inicio</a>
                     </li>
@@ -51,6 +51,9 @@
                     </li>
                     <li>
                         <a href="#" onclick="javascript:vistainmobiliario();">Gestor Inmobiliario</a>
+                    </li>
+                    <li>
+                        <a href="Logout.jsp" >Salir</a>
                     </li>
                 </ul>
 
