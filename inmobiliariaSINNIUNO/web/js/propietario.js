@@ -41,7 +41,7 @@ function addpropietario(rut, nombre, fecha, correo, telefono, sexo, numero_propi
         }
     });
 }
-
+ 
 function modificar(estado,rut) {
     
 //    alert(estado);
