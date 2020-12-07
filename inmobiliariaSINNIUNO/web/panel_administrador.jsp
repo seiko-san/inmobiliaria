@@ -4,7 +4,7 @@
     Author     : seiko
     Modificado : Thelaw 02-12-2020
 --%>
-
+ 
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="modelo.Conexion"%>

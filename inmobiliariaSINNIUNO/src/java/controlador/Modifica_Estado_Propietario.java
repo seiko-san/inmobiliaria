@@ -58,10 +58,10 @@ Agregar_Propietario update = new Agregar_Propietario();
             System.out.println(rut);   
             System.out.println(estado);
 
-             out.println(propietario);   
+             //out.println(propietario);   
             
             boolean respuesta = update.ActualizarEstado(propietario);
-            System.out.println(respuesta);
+            //System.out.println(respuesta);
 
             if (respuesta == true) {
                 out.println("<div class='alert alert-success alert-dismissible'>\n" +

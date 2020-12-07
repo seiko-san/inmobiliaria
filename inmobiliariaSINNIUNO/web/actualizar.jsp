@@ -88,7 +88,7 @@
                         </select>
                     </div>
 
-                    <button type="submit" class="btn btn-primary btn-block" href="javascript:;" onclick="modificar($('#estado').val(), $('#rut').val());return false;">Registrar</button>
+                    <button type="submit" class="btn btn-primary btn-block" href="javascript:;" onclick="modificar($('#estado').val(), $('#rut').val());return false;">Actualizar</button>
                     
                     <!--<button type="submit" class="btn btn-primary btn-block">Registrar</button>-->
                 </form>
