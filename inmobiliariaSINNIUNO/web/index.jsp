@@ -12,6 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+    <link href="css/estiloprincipal.css" rel="stylesheet" type="text/css"/>
     <style>
         body,h1,h2,h3,h4,h5 {font-family: "Poppins", sans-serif}
         body {font-size:16px;}
@@ -29,16 +30,16 @@
             </div>
             <div class="w3-bar-block">
                 <a href="#" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Inicio</a> 
-                <a href="#showcase" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Inmobiliarios</a> 
-                <a href="#services" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Servicios</a> 
-                <a href="#designers" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">¿Quienes Somos?</a> 
+                <a href="#inmobiliarios" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Inmobiliarios</a> 
+                <a href="#servicios" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Servicios</a> 
+                <a href="#quienessomos" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">¿Quienes Somos?</a> 
             </div>
         </nav>
 
         <!-- Top menu on small screens -->
         <header class="w3-container w3-top w3-hide-large w3-red w3-xlarge w3-padding">
             <a href="javascript:void(0)" class="w3-button w3-red w3-margin-right" onclick="w3_open()">☰</a>
-            <span>Company Name</span>
+            <span>Inmobiliaria SINNIUNO</span>
         </header>
 
         <!-- Overlay effect when opening sidebar on small screens -->
@@ -48,7 +49,7 @@
         <div class="w3-main" style="margin-left:340px;margin-right:40px">
 
             <!-- Header -->
-            <div class="w3-container" style="margin-top:80px" id="showcase">
+            <div class="w3-container" style="margin-top:80px" id="inmobiliarios">
                 <h1 class="w3-jumbo"><b>Inmobiliaria SINNIUNO</b></h1>
                 <h1 class="w3-xxxlarge w3-text-red"><b>inmobiliarios</b></h1>
                 <hr style="width:50px;border:5px solid red" class="w3-round">
@@ -58,14 +59,11 @@
             <div class="w3-row-padding">
                 <div class="w3-half">
                     <img src="img/inmobiliario.gif" style="width:100%" onclick="onClick(this)" alt="Concrete meets bricks">
-                    <img src="img/inmobiliario.gif" style="width:100%" onclick="onClick(this)" alt="Light, white and tight scandinavian design">
-                    <img src="img/inmobiliario.gif" style="width:100%" onclick="onClick(this)" alt="White walls with designer chairs">
+           
                 </div>
 
                 <div class="w3-half">
                     <img src="img/inmobiliario.gif" style="width:100%" onclick="onClick(this)" alt="Windows for the atrium">
-                    <img src="img/inmobiliario.gif" style="width:100%" onclick="onClick(this)" alt="Bedroom and office in one space">
-                    <img src="img/inmobiliario.gif" style="width:100%" onclick="onClick(this)" alt="Scandinavian design">
                 </div>
             </div>
 
@@ -78,9 +76,9 @@
                 </div>
             </div>
 
-            <!-- Services -->
-            <div class="w3-container" id="services" style="margin-top:75px">
-                <h1 class="w3-xxxlarge w3-text-red"><b>Servicios.</b></h1>
+            <!-- Servicios -->
+            <div class="w3-container" id="servicios" style="margin-top:75px">
+                <h1 class="w3-xxxlarge w3-text-red"><b>Servicios</b></h1>
                 <hr style="width:50px;border:5px solid red" class="w3-round">
                 <p>La inmobiliaria es una entidad privada que establece la interacción entre
                     dos o más personas interesadas con el único fin de vender un inmueble. 
@@ -96,8 +94,8 @@
             </div>
 
             <!-- Designers -->
-            <div class="w3-container" id="designers" style="margin-top:75px">
-                <h1 class="w3-xxxlarge w3-text-red"><b>¿Quienes Somos?.</b></h1>
+            <div class="w3-container" id="quienessomos" style="margin-top:75px">
+                <h1 class="w3-xxxlarge w3-text-red"><b>¿Quienes Somos?</b></h1>
                 <hr style="width:50px;border:5px solid red" class="w3-round">
                 <p>Equipo de trabajo de Inmobiliaria SINNIUNO.</p>
                 <p>
@@ -144,7 +142,7 @@
 
 
         <script>
-        // Script to open and close sidebar
+            // Script to open and close sidebar
             function w3_open() {
                 document.getElementById("mySidebar").style.display = "block";
                 document.getElementById("myOverlay").style.display = "block";
@@ -155,7 +153,7 @@
                 document.getElementById("myOverlay").style.display = "none";
             }
 
-        // Modal Image Gallery
+            // Modal Image Gallery
             function onClick(element) {
                 document.getElementById("img01").src = element.src;
                 document.getElementById("modal01").style.display = "block";
@@ -166,12 +164,12 @@
 
     </body>
     <footer>
-        
-        <div class="w3-light-grey w3-container w3-padding-32" style="margin-top:75px;padding-right:58px"><p class="w3-right">
-                Todo los derechos reservados.
-                <a title="W3.CSS" target="_blank" class="w3-hover-opacity">w3.css</a>
-            </p>
-        </div>
 
+         <div class="footclas w3-light-grey w3-container w3-padding-32"><p class="w3-right">
+                 <strong>Copyright &copy; 2020 <a href="#quienessomos">TheLaw&Seiko</a>.</strong>
+            Todos los derechos reservados.
+             </p>
+         </div>
+   
     </footer>
 </html>

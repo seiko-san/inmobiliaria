@@ -9,7 +9,7 @@ and open the template in the editor.
 */
 
 .register{
-    background: -webkit-linear-gradient(left, #3931af, #00c6ff);
+    background: -webkit-linear-gradient(left, #af7731, #ffb800);
     margin-top: 3%;
     padding: 3%;
 }
@@ -74,7 +74,7 @@ and open the template in the editor.
 .register .nav-tabs{
     margin-top: 3%;
     border: none;
-    background: #0062cc;
+    background: #ffb800;
     border-radius: 1.5rem;
     width: 28%;
     float: right;

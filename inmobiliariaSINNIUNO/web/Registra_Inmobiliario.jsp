@@ -17,7 +17,7 @@
         <title>JSP Page</title>
         <link href="css/estiloprincipal.css" rel="stylesheet" type="text/css"/>
     </head>
-    <body>
+    <body id="LoginForm">
 
         <%
             Connection con;
@@ -30,106 +30,106 @@
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <link href="css/estilo.css" rel="stylesheet" type="text/css"/>  
+        <link href="css/estiloprincipal.css" rel="stylesheet" type="text/css"/>
         <script src="js/inmobiliario.js" type="text/javascript"></script>
-        <div id="fondo"> <br>
-            <div class="toggled">
-                <!-- Sidebar -->
 
-                <div class="container register">
-                    <div class="row">
-                        <div class="col-md-3 register-left">
-                            <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt=""/>
-                            <h3>Nuevo usuario</h3>
-                            <h5> Gestor Inmobiliario Free</h5>
+        <div id="fondo">
+            <div class="container">
+                <div class="row mb-4">
+                    <div class="col-12"><br>
+                        <h1 class="text-center text-white">REGISTRAR <br>Gestor Inmobiliario Free</h1>
+                    </div>
+                </div>
 
-                        </div>
-                        <!--<form method="POST" enctype="multipart/form-data" >  </form>-->
-                        <form id="frminmobiliario" class="form" method="post" action="NuevoInmobiliario" enctype="multipart/form-data" >
-                            <div class="tab-content" id="myTabContent">
-                                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                                    <h3 class="register-heading  text-white">Inmobiliaria SINNIUNO</h3>
-                                    <div class="row register-form">
-                                        <div class="col-md-6 shadow">
+                <div  class="row">
+                    <div id="prop" class="card offset-md-3 col-12 col-md-6 shadow">
+                        <div  class="card-body">
 
-                                            <div class="form-group">
-                                                <label class="text-white" for="rut">Ingrese su Rut:</label>
-                                                <input type="text" class="form-control" id="rut" name="rut">
-                                            </div>
+                            <!--<form method="POST" enctype="multipart/form-data" >  </form>-->
+                            <form id="frminmobiliario" class="form" method="post" action="NuevoInmobiliario" enctype="multipart/form-data" >
+                                <div class="tab-content" id="myTabContent">
+                                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                        <h3 class="register-heading  text-white">Inmobiliaria SINNIUNO</h3>
+                                        <div class="row register-form">
+                                            <div class="col-md-12 shadow">
 
-                                            <div class="form-group" >
-                                                <label class="text-white" for="nombre">Ingrese su Nombre:</label>
-                                                <input type="text" class="form-control"  name="nombre" id="nombre"/>
-                                            </div>
+                                                <div class="form-group">
+                                                    <label class="text" for="rut">Ingrese su Rut:</label>
+                                                    <input type="text" class="form-control" id="rut" name="rut">
+                                                </div>
 
-                                            <div class="form-group">
-                                                <label class="text-white" for="fecha">Fecha de Nacimiento:</label>
-                                                <input type="date" class="form-control" name="fecha_nacimiento" id="fecha_nacimiento"/>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="text-white" for="correo">Ingrese su Correo:</label>
-                                                <input type="text" class="form-control" name="correo"  placeholder="Ingrese su correo" id="correo" />
-                                            </div>
-                                        </div>
+                                                <div class="form-group" >
+                                                    <label class="text" for="nombre">Ingrese su Nombre:</label>
+                                                    <input type="text" class="form-control"  name="nombre" id="nombre"/>
+                                                </div>
 
+                                                <div class="form-group">
+                                                    <label class="text" for="fecha">Fecha de Nacimiento:</label>
+                                                    <input type="date" class="form-control" name="fecha_nacimiento" id="fecha_nacimiento"/>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="text" for="correo">Ingrese su Correo:</label>
+                                                    <input type="text" class="form-control" name="correo"  placeholder="Ingrese su correo" id="correo" />
+                                                </div>
 
-                                        <div class="col-md-6 shadow">
+                                                <div class="form-group">
+                                                    <label class="text" for="clave">Ingrese su Contraseña:</label>
+                                                    <input type="password" class="form-control" name="clave" id="clave" />
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="text" for="sexo">Seleccione su Sexo:</label>
+                                                    <select class="form-control" id="sexo" name="sexo">
+                                                        <option value="0">Selecciona Sexo</option>
 
+                                                        <%
+                                                            String sql2 = "select * from sexo;";
+                                                            try {
+                                                                con = cn.getConnection();
+                                                                ps = con.prepareStatement(sql2);
 
-                                            <div class="form-group">
-                                                <label class="text-white" for="clave">Ingrese su Contraseña:</label>
-                                                <input type="password" class="form-control" name="clave" id="clave" />
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="text-white" for="sexo">Seleccione su Sexo:</label>
-                                                <select class="form-control" id="sexo" name="sexo">
-                                                    <option value="0">Selecciona Sexo</option>
+                                                                rs = ps.executeQuery();
 
-                                                    <%
-                                                        String sql2 = "select * from sexo;";
-                                                        try {
-                                                            con = cn.getConnection();
-                                                            ps = con.prepareStatement(sql2);
+                                                                while (rs.next()) {
+                                                                    out.println("<option value= " + rs.getString(1) + ">" + rs.getString(2) + "</option>");
 
-                                                            rs = ps.executeQuery();
+                                                                }
 
-                                                            while (rs.next()) {
-                                                                out.println("<option value= " + rs.getString(1) + ">" + rs.getString(2) + "</option>");
-
+                                                            } catch (Exception e) {
+                                                                out.println(e.toString());
                                                             }
 
-                                                        } catch (Exception e) {
-                                                            out.println(e.toString());
-                                                        }
 
+                                                        %>
+                                                    </select>
 
-                                                    %>
-                                                </select>
-
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="text" for="telefono">Ingrese su Telefono:</label>
+                                                    <input type="text" class="form-control" name="telefono"  id="telefono" />
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="text" for="rut">Agregue Certificado de Antecedentes:</label><br>
+                                                    <input type="file"name="file[]" id="archivos" class="form-contralue " multiple/>
+                                                </div><br>
+                                                <button type="submit" name="accion" class="btn btn-primary btn-outline-success" value="Crear">Crear Usuario</button>
+                                                <br><br>
                                             </div>
-                                            <div class="form-group">
-                                                <label class="text-white" for="telefono">Ingrese su Telefono:</label>
-                                                <input type="text" class="form-control" name="telefono"  id="telefono" />
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="text-white" for="rut">Agregue Certificado:</label><br>
-                                                <label class="text-white" for="rut">de Antecedentes:</label>
-                                                <input type="file"name="file[]" id="archivos" class="form-contralue btn-outline-success" multiple/>
-                                            </div><br>
-                                            <button type="submit" name="accion" class="btn btn-primary border-white" value="Crear">Crear Usuario</button>
-                                            <!--<button type="submit" class="btn btn-primary btn-block" href="javascript:;" onclick="addinmobiliario($('#rut').val(), $('#nombre').val(), $('#fecha_nacimiento').val(), $('#correo').val(), $('#telefono').val(), $('#sexo').val(), $('#archivos').val(), $('#clave').val());return false;">Registrar</button>-->
-
                                         </div>
                                     </div>
                                 </div>
-
-                            </div>
-                        </form>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-                                                 
+            <br><br>
+            <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>                                  
     </body>
+    <footer>
+        <div class="footer1 ">
+            <strong>Copyright &copy; 2020 <a href="#">TheLaw&Seiko</a>.</strong>
+            Todo los derechos reservados.
+        </div>
+    </footer>
 </html>
 
