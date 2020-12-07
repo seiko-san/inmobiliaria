@@ -62,7 +62,6 @@
                                                     <label class="text" for="nombre">Ingrese su Nombre:</label>
                                                     <input type="text" class="form-control"  name="nombre" id="nombre"/>
                                                 </div>
-
                                                 <div class="form-group">
                                                     <label class="text" for="fecha">Fecha de Nacimiento:</label>
                                                     <input type="date" class="form-control" name="fecha_nacimiento" id="fecha_nacimiento"/>
