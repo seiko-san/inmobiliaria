@@ -19,12 +19,14 @@ correo_usuario varchar(50) not null,
 clave_usuario varchar(20) not null,
 telefono_usuario varchar(15) not null,
 numero_propiedad int null,
+estado varchar(1) null,
 certificado_antecedente mediumblob null,
 id_sexo int not null,
 id_perfil int not null,
 primary key(rut_usuario),
 foreign key(id_sexo) references sexo(id_sexo),
 foreign key(id_perfil) references perfiles(id_perfil));
+
 
 create table tipo_propiedad(
 id_tipo int not null auto_increment,
@@ -35,7 +37,16 @@ primary key (id_tipo));
 create table propiedad(
 codigo_propiedad int not null auto_increment,
 tipo_propiedad int not null,
-fotos text, 
+fotos1 mediumblob null,
+fotos2 mediumblob null,
+fotos3 mediumblob null,
+fotos4 mediumblob null,
+fotos5 mediumblob null,
+fotos6 mediumblob null,
+fotos7 mediumblob null,
+fotos8 mediumblob null,
+fotos9 mediumblob null,
+fotos10 mediumblob null,
 descripción varchar(500) not null,
 cantbaños int not null,
 cantdormitorios int not null,
@@ -52,9 +63,10 @@ cocina_amoblada boolean not null,
 antejardin boolean not null,
 Patio_trasero boolean not null,
 piscina boolean not null,
+rut_usuario varchar(12) not null,
 primary key (codigo_propiedad),
+foreign key (rut_usuario) references Usuarios(rut_usuario),
 foreign key (tipo_propiedad) references tipo_propiedad(id_tipo));
-
 
 
 /**********INSERT*******************/
@@ -66,19 +78,11 @@ INSERT INTO Perfiles (`nombre_tipo`)
  INSERT INTO sexo (`nombre_sexo`)
  VALUES ('femenino'), 
  ('masculino');
-
-INSERT INTO usuarios(`rut_usuario`,`nombre_usuario`,`fechanac_usuario`,`correo_usuario`,`clave_usuario`,`telefono_usuario`,`id_sexo`,`id_perfil`)
-VALUES ('176799129', 'Pedro', '1991-08-08', 'pgaticaguajardo@gmail.com', '123', '123456789','1', '1');
-
-INSERT INTO usuarios(`rut_usuario`,`nombre_usuario`,`fechanac_usuario`,`correo_usuario`,`clave_usuario`,`telefono_usuario`,`id_sexo`,`id_perfil`)
-VALUES ('198997986', 'Darlyn', '1999-11-08', 'dsoazolara@gmail.com', '123', '123456789','2', '2');
-
-INSERT INTO usuarios(`rut_usuario`,`nombre_usuario`,`fechanac_usuario`,`correo_usuario`,`clave_usuario`,`telefono_usuario`,`id_sexo`,`id_perfil`)
-VALUES ('111111111', 'Marcela', '1991-08-08', 'marcela@gmail.com', '123', '123456789','2', '3');
-
-insert into tipo_propiedad(nombre_propiedad,descripcion_propiedad)
+ 
+ insert into tipo_propiedad(nombre_propiedad,descripcion_propiedad)
 values('Casas', 'venta de casas'),
 ('Departamentos','venta de departamentos'),
 ('Terrenos','venta de terrenos');
 
-select * from usuarios;
+INSERT INTO usuarios(`rut_usuario`,`nombre_usuario`,`fechanac_usuario`,`correo_usuario`,`clave_usuario`,`telefono_usuario`,`id_sexo`,`id_perfil`)
+VALUES ('198997986', 'Darlyn', '1999-11-08', 'dsoazolara@gmail.com', '123', '123456789','2', '1');
