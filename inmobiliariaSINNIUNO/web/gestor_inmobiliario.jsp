@@ -4,6 +4,7 @@
     Author     : Law
 --%>
 
+<%@page import="java.sql.Blob"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="modelo.Conexion"%>
@@ -26,10 +27,10 @@
             PreparedStatement ps;
             ResultSet rs;
 
-            String sql2 = "Select * from Usuarios where id_perfil = 3";
+            String SQL = "select usuarios.rut_usuario, usuarios.nombre_usuario, usuarios.fechanac_usuario, usuarios.correo_usuario, usuarios.clave_usuario, usuarios.telefono_usuario, sexo.nombre_sexo, perfiles.nombre_tipo, usuarios.certificado_antecedente from usuarios inner join perfiles on usuarios.id_perfil = perfiles.id_perfil inner join sexo on usuarios.id_sexo = sexo.id_sexo where perfiles.nombre_tipo = 'Gestor Inmobiliario Free'";
 
             con = cn.getConnection();
-            ps = con.prepareStatement(sql2);
+            ps = con.prepareStatement(SQL);
 
             rs = ps.executeQuery();
         %>
@@ -47,25 +48,33 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                <th>id</th>
-                                <th>codigo</th>
-                                <th>m2</th>
-                                <th>direccion</th>
-                                <th>descripcion</th>
-                                <th>tipo_oferta</th>
-                                <th>valor</th>
-                                <th>imagen</th>
+                                <th>Rut Usuario</th>
+                                <th>Nombre Usuario</th>
+                                <th>Fecha Nacimiento</th>
+                                <th>Correo Usuario</th>
+                                <th>Clave</th>
+                                <th>Telefono</th>
+                                <th>Sexo</th>
+                                <th>Perfil</th>
+                                <th>Certificado Antecedente</th>
                             </tr>
                         </thead>
                         <% 
                         while(rs.next()){
                             
-                        
+                         //Blob fileData = rs.getBlob("certificado_antecedente");
                         
                         %>
                         <tbody id="tabla">
                             <td><%=rs.getString("rut_usuario") %></td>
                             <td><%=rs.getString("nombre_usuario") %></td>
+                            <td><%=rs.getString("fechanac_usuario") %></td>
+                            <td><%=rs.getString("correo_usuario") %></td>
+                            <td><%=rs.getString("clave_usuario") %></td>
+                            <td><%=rs.getString("telefono_usuario") %></td>
+                            <td><%=rs.getString("nombre_sexo") %></td>
+                            <td><%=rs.getString("nombre_tipo") %></td>
+                            <td><a href="descarga.jsp?rut=<%out.print(rs.getString("rut_usuario"));%>" target="_blank">Ver PDF</a></td>
                         </tbody>
                         <% 
 
