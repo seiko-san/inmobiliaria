@@ -12,7 +12,7 @@
         <title>JSP Page</title>
     </head>
     
-
+    <link href="css/estiloprincipal.css" rel="stylesheet" type="text/css"/>
         <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
         <link href="css/estilos.css" rel="stylesheet" type="text/css"/>
         
@@ -53,6 +53,9 @@
         </div>
 </body>
 <footer>
-    
+    <div class="footer float-right d-none d-sm-inline-block">
+            <strong>Copyright &copy; 2020 <a href="#">TheLaw&Seiko</a>.</strong>
+             Todo los derechos reservados.
+        </div>
 </footer>
 </html>

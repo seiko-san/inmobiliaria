@@ -15,7 +15,7 @@
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+        <link href="css/estiloprincipal.css" rel="stylesheet" type="text/css"/>
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
         <script src="js/propietario.js" type="text/javascript"></script>
@@ -30,11 +30,11 @@
                     <h1 class="text-center">REGISTRA PROPIETARIO</h1>
                 </div>
             </div>
-            <div class="row">
-                <div class="card offset-md-3 col-12 col-md-6 shadow">
-                    <div class="card-body">
+            <div  class="row">
+                <div id="prop" class="card offset-md-3 col-12 col-md-6 shadow">
+                    <div  class="card-body">
 
-                        <form>
+                        <form >
                             <div class="form-group">
                                 <label for="rut">Rut</label>
                                 <input type="text" class="form-control" id="rut"  name="rut" >
