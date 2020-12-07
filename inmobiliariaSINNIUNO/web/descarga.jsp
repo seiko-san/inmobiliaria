@@ -40,10 +40,10 @@
             //System.out.println(file);
             fileData = file.getBytes(1,(int)file.length());
         } else {
-            out.println("file not found!");
+            out.println("Error del archivo!");
             return;
         }
-
+        
         response.setContentType("application/pdf");
         response.setHeader("Content-Disposition", "inline");
         response.setContentLength(fileData.length);

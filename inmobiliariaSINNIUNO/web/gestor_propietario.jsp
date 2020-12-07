@@ -8,14 +8,14 @@
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="modelo.Conexion"%>
 <%@page import="java.sql.Connection"%>
-<body>
+
     <%
         Connection con;
         Conexion cn = new Conexion();
         PreparedStatement ps;
         ResultSet rs;
 
-        String sql2 = "select usuarios.rut_usuario, numero_propiedad, nombre_sexo,usuarios.nombre_usuario, usuarios.fechanac_usuario, usuarios.correo_usuario, usuarios.clave_usuario, usuarios.telefono_usuario, sexo.nombre_sexo, perfiles.nombre_tipo from usuarios inner join perfiles on usuarios.id_perfil = perfiles.id_perfil inner join sexo on usuarios.id_sexo = sexo.id_sexo where perfiles.nombre_tipo = 'Gestor Inmobiliario Free';";
+        String sql2 = "select usuarios.rut_usuario, numero_propiedad, nombre_sexo,usuarios.nombre_usuario, usuarios.fechanac_usuario, usuarios.correo_usuario, usuarios.clave_usuario, usuarios.telefono_usuario, sexo.nombre_sexo, perfiles.nombre_tipo from usuarios inner join perfiles on usuarios.id_perfil = perfiles.id_perfil inner join sexo on usuarios.id_sexo = sexo.id_sexo where perfiles.nombre_tipo = 'Dueño de Inmueble o Propietario';";
 
         con = cn.getConnection();
         ps = con.prepareStatement(sql2);
@@ -60,4 +60,4 @@
 
         </div>
     </div>
-</body>
+
