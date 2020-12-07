@@ -43,3 +43,51 @@ function vistainmobiliario() {
         }
     });
 }
+
+function vistaantecedente(rut) {
+    
+  
+    
+    var detener = 3090;
+   
+    $.ajax({
+        type: "POST",
+        data: 'rut=' + rut,
+        url: "Formulario_Propietario.jsp",
+        beforeSend: function () {
+            $('#content').html('<div class="loading" align="center"><img src="img/inmobiliario.gif" alt="loading" /><br/>Un momento, por favor...</div>');
+            
+        },
+
+        success: function (data) {
+            setTimeout(function () {
+                $('#content').html(data);
+            }, detener
+                    );
+        }
+    });
+}
+
+function vistalistar(rut) {
+    
+  
+    
+    var detener = 3090;
+   
+    $.ajax({
+        type: "POST",
+        data: 'rut=' + rut,
+        url: "Lista_Propietario.jsp",
+        beforeSend: function () {
+            $('#content').html('<div class="loading" align="center"><img src="img/inmobiliario.gif" alt="loading" /><br/>Un momento, por favor...</div>');
+            
+        },
+
+        success: function (data) {
+            setTimeout(function () {
+                $('#content').html(data);
+            }, detener
+                    );
+        }
+    });
+}
