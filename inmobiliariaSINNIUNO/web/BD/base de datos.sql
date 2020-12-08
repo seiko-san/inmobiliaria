@@ -85,4 +85,4 @@ values('Casas', 'venta de casas'),
 ('Terrenos','venta de terrenos');
 
 INSERT INTO usuarios(`rut_usuario`,`nombre_usuario`,`fechanac_usuario`,`correo_usuario`,`clave_usuario`,`telefono_usuario`,`id_sexo`,`id_perfil`)
-VALUES ('198997986', 'Darlyn', '1999-11-08', 'dsoazolara@gmail.com', '123', '123456789','2', '1');
+VALUES ('176799129', 'Pedro', '1991-08-08', 'pgaticaguajardo@gmail.com', '123', '123456789','1', '1');

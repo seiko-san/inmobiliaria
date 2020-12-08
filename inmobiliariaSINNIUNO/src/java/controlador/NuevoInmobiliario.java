@@ -8,6 +8,7 @@ package controlador;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintWriter;
+import static java.lang.System.out;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -44,6 +45,21 @@ public class NuevoInmobiliario extends HttpServlet {
         String sexo = request.getParameter("sexo");
         Part archivos = request.getPart("archivos");
         
+        
+        if(rut.isEmpty() || nombre.isEmpty() || fecha.isEmpty() || correo.isEmpty()
+                || clave.isEmpty() || telefono.isEmpty() || sexo.isEmpty() ){
+            
+            
+            out.println("<div class='alert alert-warning alert-dismissible'>\n" +
+"                  \n" +
+"                  <h5><i class='icon fas fa-exclamation-triangle'></i> Advertencia!</h5>\n" +
+"                  Debe completar los datos.\n" +
+"                </div>");
+        }else{
+            
+        
+        
+        
         int sex = Integer.parseInt(sexo);
         
         InputStream inputStream = null;
@@ -55,9 +71,14 @@ public class NuevoInmobiliario extends HttpServlet {
             Usuario_Free usuario = new Usuario_Free(rut, nombre, fecha ,correo, sex ,clave, telefono);
             agregar.GuardarInmobiliario(usuario, inputStream);
 
+            out.println("<div class='alert alert-success alert-dismissible'>\n" +
+"                  \n" +
+"                  <h5><i class='icon fas fa-check'></i> Guardado!</h5>\n" +
+"                  Datos Guardados.\n" +
+"                </div>");
         }
         
- 
+ }
         
 //        int sex = Integer.parseInt(sexo);
 //        

@@ -6,7 +6,7 @@
 
 $(document).ready(function () {
                 // AGREGAR TODO EL CODIGO GENIAL QUE QUEREMOS
-
+var detener = 2500;
                 $("#frminmobiliario").on('submit', function (e) {
                     e.preventDefault();
 
@@ -42,9 +42,22 @@ $(document).ready(function () {
                             data: formulario,
                             contentType: false,
                             processData: false,
+                            beforeSend: function () {
+            $('#result').html('<div class="loading" align="center"><img src="img/carga.svg" alt="loading" /><br/>Un momento, por favor...</div>');
+        },
                             success: function (resp) {
-                                console.log(resp);
-                                console.log(archivos)
+                                setTimeout(function () {
+                $("#result").html(resp);
+                $('#rut').val('');
+                $('#nombre').val('');
+                $('#fecha_nacimiento').val('');
+                $('#correo').val('');
+                $('#telefono').val('');
+                $('#sexo').val('');
+                $('#archivos').val('');
+                $('#clave').val('');
+            }, detener
+                    );
                             }
                         });
                     }

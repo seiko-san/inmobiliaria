@@ -46,6 +46,7 @@ public class Agregar_Inmobiliario {
             ps.execute();
             
             
+            
         }catch(SQLException ex){
             System.out.println(ex);
         }

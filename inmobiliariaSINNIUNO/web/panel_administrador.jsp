@@ -33,6 +33,13 @@
 
 
     <body>
+        
+        <%
+            Connection con;
+            Conexion cn = new Conexion();
+            PreparedStatement ps;
+            ResultSet rs;
+        %>
 
         <div class="wrapper">
 
@@ -41,9 +48,27 @@
                 <div class="sidebar-header">
                     <h3>INMOBILIARIA</h3>
                 </div>
+                
+                <%
+                        String SQL1 = "select nombre_usuario from usuarios where rut_usuario = '" + request.getSession().getAttribute("nick") + "'";
+
+                        con = cn.getConnection();
+                        ps = con.prepareStatement(SQL1);
+                        rs = ps.executeQuery();
+
+                        while (rs.next()) {
+
+                            
+
+
+                    %>
                 <ul class="lisst-unstyled components">
                    <!--<%//${nick}%>-->
-                    <p>Usuario: <%= request.getSession().getAttribute("nick")%></p>
+                    <p>Usuario: <%=rs.getString("nombre_usuario")%></p>
+                    <%
+                    
+                        }
+                    %>
                     <li >
                         <a href="panel_administrador.jsp">Inicio</a>
                     </li>

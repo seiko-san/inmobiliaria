@@ -14,7 +14,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Registrar Inmobiliario</title>
         <link href="css/estiloprincipal.css" rel="stylesheet" type="text/css"/>
     </head>
     <body id="LoginForm">
@@ -32,7 +32,49 @@
         <link href="css/estilo.css" rel="stylesheet" type="text/css"/>  
         <link href="css/estiloprincipal.css" rel="stylesheet" type="text/css"/>
         <script src="js/inmobiliario.js" type="text/javascript"></script>
-
+        <script src="js/validaciones.js" type="text/javascript"></script>
+        <script>
+            
+            function valideKey(evt){
+			
+			
+			var code = (evt.which) ? evt.which : evt.keyCode;
+			
+			if(code==8) {
+			  return true;
+			} else if(code>=48 && code<=57) { 
+			  return true;
+			} else{ 
+			  return false;
+			}
+		}
+            
+          
+  function sololetras(e) {
+        key=e.keyCode || e.which;
+ 
+        teclado=String.fromCharCode(key).toLowerCase();
+ 
+        letras="qwertyuiopasdfghjklñzxcvbnm ";
+ 
+        especiales="8-37-38-46-164";
+ 
+        teclado_especial=false;
+ 
+        for(var i in especiales){
+            if(key==especiales[i]){
+                teclado_especial=true;
+                break;
+            }
+        }
+ 
+        if(letras.indexOf(teclado)==-1 && !teclado_especial){
+            return false;
+        }
+    }
+          
+          
+        </script>
         <div id="fondo">
             <div class="container">
                 <div class="row mb-4">
@@ -46,7 +88,7 @@
                         <div  class="card-body">
 
                             <!--<form method="POST" enctype="multipart/form-data" >  </form>-->
-                            <form id="frminmobiliario" class="form" method="post" action="NuevoInmobiliario" enctype="multipart/form-data" >
+                            <form id="frminmobiliario" class="form" method="post" action="NuevoInmobiliario" enctype="multipart/form-data">
                                 <div class="tab-content" id="myTabContent">
                                     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                                         <h3 class="register-heading  text-white">Inmobiliaria SINNIUNO</h3>
@@ -55,25 +97,25 @@
 
                                                 <div class="form-group">
                                                     <label class="text" for="rut">Ingrese su Rut:</label>
-                                                    <input type="text" class="form-control" id="rut" name="rut">
+                                                    <input type="text" class="form-control" id="rut" name="rut" onkeypress="return valideKey(event);" required="">
                                                 </div>
 
                                                 <div class="form-group" >
                                                     <label class="text" for="nombre">Ingrese su Nombre:</label>
-                                                    <input type="text" class="form-control"  name="nombre" id="nombre"/>
+                                                    <input type="text" class="form-control"  name="nombre" id="nombre" onkeypress="return sololetras(event)" required=""/>
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="text" for="fecha">Fecha de Nacimiento:</label>
-                                                    <input type="date" class="form-control" name="fecha_nacimiento" id="fecha_nacimiento"/>
+                                                    <input type="date" class="form-control" name="fecha_nacimiento" id="fecha_nacimiento" required=""/>
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="text" for="correo">Ingrese su Correo:</label>
-                                                    <input type="text" class="form-control" name="correo"  placeholder="Ingrese su correo" id="correo" />
+                                                    <input type="text" class="form-control" name="correo"  placeholder="Ingrese su correo" id="correo" required=""/>
                                                 </div>
 
                                                 <div class="form-group">
                                                     <label class="text" for="clave">Ingrese su Contraseña:</label>
-                                                    <input type="password" class="form-control" name="clave" id="clave" />
+                                                    <input type="password" class="form-control" name="clave" id="clave" required=""/>
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="text" for="sexo">Seleccione su Sexo:</label>
@@ -104,7 +146,7 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="text" for="telefono">Ingrese su Telefono:</label>
-                                                    <input type="text" class="form-control" name="telefono"  id="telefono" />
+                                                    <input type="text" class="form-control" name="telefono"  id="telefono" required=""/>
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="text" for="rut">Agregue Certificado de Antecedentes:</label><br>
@@ -118,6 +160,7 @@
                                 </div>
                             </form>
                         </div>
+                                                    <div id="result"></div>
                     </div>
                 </div>
             </div>

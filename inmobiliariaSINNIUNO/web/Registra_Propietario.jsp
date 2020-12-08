@@ -20,6 +20,48 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
         <script src="js/propietario.js" type="text/javascript"></script>
         <script src="js/validaciones.js" type="text/javascript"></script>
+        <script>
+            
+            function valideKey(evt){
+			
+			
+			var code = (evt.which) ? evt.which : evt.keyCode;
+			
+			if(code==8) {
+			  return true;
+			} else if(code>=48 && code<=57) { 
+			  return true;
+			} else{ 
+			  return false;
+			}
+		}
+            
+          
+  function sololetras(e) {
+        key=e.keyCode || e.which;
+ 
+        teclado=String.fromCharCode(key).toLowerCase();
+ 
+        letras="qwertyuiopasdfghjklñzxcvbnm ";
+ 
+        especiales="8-37-38-46-164";
+ 
+        teclado_especial=false;
+ 
+        for(var i in especiales){
+            if(key==especiales[i]){
+                teclado_especial=true;
+                break;
+            }
+        }
+ 
+        if(letras.indexOf(teclado)==-1 && !teclado_especial){
+            return false;
+        }
+    }
+          
+          
+        </script>
         <title>Registrar Propietario</title>
     </head>
     <body id="LoginForm">
@@ -38,12 +80,12 @@
                             <form >
                                 <div class="form-group">
                                     <label for="rut">Rut</label>
-                                    <input type="text" class="form-control" id="rut"  name="rut" >
+                                    <input type="text" class="form-control" id="rut"  name="rut" onkeypress="return valideKey(event);" required="">
                                 </div>
 
                                 <div class="form-group">
                                     <label for="nombre_completo">Nombre Completo</label>
-                                    <input type="text" class="form-control" id="nombre" name="nombre">
+                                    <input type="text" class="form-control" id="nombre" name="nombre" onkeypress="return sololetras(event)" required="">
                                 </div>
                                 <div class="form-group">
                                     <label for="fecha_nacimiento">fecha Nacimiento</label>
@@ -51,11 +93,11 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="correo">Correo</label>
-                                    <input type="text" class="form-control" id="correo" name="correo">
+                                    <input type="text" class="form-control" id="correo" name="correo" required="">
                                 </div>
                                 <div class="form-group">
                                     <label for="telefono">Telefono</label>
-                                    <input type="text" class="form-control" id="telefono" name="telefono">
+                                    <input type="text" class="form-control" id="telefono" name="telefono" required="">
                                 </div>
                                 <div class="form-group">
                                     <div class="input-group-prepend">
@@ -87,12 +129,12 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="telefono">Numero Propietario</label>
-                                    <input type="text" class="form-control" id="numero_propietario" name="numero_propietario">
+                                    <input type="text" class="form-control" id="numero_propietario" name="numero_propietario" required="">
                                 </div>
 
                                 <div class="form-group">
                                     <label for="telefono">Clave</label>
-                                    <input type="password" class="form-control" id="clave" name="clave">
+                                    <input type="password" class="form-control" id="clave" name="clave" required="">
                                 </div>
                                 <button type="submit" class="btn btn-primary btn-block" href="javascript:;" onclick="addpropietario($('#rut').val(), $('#nombre').val(), $('#fecha_nacimiento').val(), $('#correo').val(), $('#telefono').val(), $('#sexo').val(), $('#numero_propietario').val(), $('#clave').val());return false;">Registrar</button>
                                 <!--<button type="submit" class="btn btn-primary btn-block">Registrar</button>-->

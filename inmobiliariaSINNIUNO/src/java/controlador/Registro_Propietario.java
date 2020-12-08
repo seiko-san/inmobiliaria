@@ -87,10 +87,10 @@ Usuario_Propietario propietario = new Usuario_Propietario();
 "                </div>");
                 
             } else {
-                out.println("<div class='alert alert-danger alert-dismissible'>\n" +
-"                  \n" +
-"                  <h5><i class='icon fas fa-ban'></i> Error!</h5>\n" +
-"                  Problemas al guardar tus datos.\n" +
+                out.println("<div class='alert alert-warning alert-dismissible'>\n" +
+"                  <button type=button class='close data-dismiss=alert aria-hidden=true'>&times;</button>\n" +
+"                  <h5><i class='icon fas fa-exclamation-triangle'></i> Advertencia!</h5>\n" +
+"                  Debe completar los datos.\n" +
 "                </div>");
                 
             }
