@@ -25,6 +25,7 @@
         <script src="js/actualizar_propietario.js" type="text/javascript"></script>
         <script src="js/propietario.js" type="text/javascript"></script>
         <script src="js/logout.js" type="text/javascript"></script>
+        <link href="css/estiloprincipal.css" rel="stylesheet" type="text/css"/>
         <title>Administrador</title>
 
 
@@ -41,10 +42,10 @@
                     <h3>INMOBILIARIA</h3>
                 </div>
                 <ul class="lisst-unstyled components">
-<!--<%//${nick}%>-->
+                   <!--<%//${nick}%>-->
                     <p>Usuario: <%= request.getSession().getAttribute("nick")%></p>
                     <li >
-                        <a href="#">Inicio</a>
+                        <a href="panel_administrador.jsp">Inicio</a>
                     </li>
                     <li>
                         <a href="#" onclick="javascript:vistapropietario();">Gestor Propietario</a>
@@ -58,22 +59,8 @@
                 </ul>
 
             </nav>
-
-            <div id="content">
-                <!--<nav class="navbar navbar-expand-lg navbar-light bg-light">
-                    <div class="container-fluid">
-                        <button type="button" id="sidebarCollapse" class="btn btn-info">
-                            <i class="fas fa-align-left"></i>
-                            <span>Menu</span>
-                        </button>
-                    </div>
-                </nav>
-            </div>-->
-
-            </div>
-
-
-
+                    <div id="content" ></div>
+        </div>
             <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
             <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
@@ -88,10 +75,10 @@
             </script>
     </body>
 
-<footer>
+<footer class="footadm">
         <div class="float-right d-none d-sm-inline-block">
             <strong>Copyright &copy; 2020 <a href="#">TheLaw&Seiko</a>.</strong>
-        Todo los derechos reservados.
+        Todos los derechos reservados.
         </div>
 </footer>
     

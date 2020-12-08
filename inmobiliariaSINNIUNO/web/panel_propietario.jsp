@@ -21,12 +21,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
-    <style>
-        body,h1,h2,h3,h4,h5 {font-family: "Poppins", sans-serif}
-        body {font-size:16px;}
-        .w3-half img{margin-bottom:-6px;margin-top:16px;opacity:0.8;cursor:pointer}
-        .w3-half img:hover{opacity:1}
-    </style>
+
     <body>
         <%
             Connection con;
@@ -34,105 +29,123 @@
             PreparedStatement ps;
             ResultSet rs;
         %>
-        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" >
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js"></script>
+        <link href="css/styleAdmin.css" rel="stylesheet">
         <link href="css/estilo.css" rel="stylesheet" type="text/css"/>  
         <script src="js/logout.js" type="text/javascript"></script>
         <script src="js/menu.js" type="text/javascript"></script>
-        
+        <link href="css/estiloprincipal.css" rel="stylesheet" type="text/css"/>
+        <script src="js/propietario.js" type="text/javascript"></script>
+        <script src="js/actualizar_propietario.js" type="text/javascript"></script>
         <!-- Sidebar/menu -->
-        <nav class="w3-sidebar w3-red w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:300px;font-weight:bold;" id="mySidebar"><br>
-            <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft" style="width:100%;font-size:22px">Close Menu</a>
-            <div class="w3-container">
-                <h3 class="w3-padding-64"><b>Inmobiliaria<br>SINNIUNO</b></h3>
-            </div>
-            <div class="w3-bar-block">
+        <div class="wrapper">
+
+            <nav id="sidebar">
+
+                <div class="sidebar-header">
+                    <h3>INMOBILIARIA</h3>
+                </div>
+                <ul class="lisst-unstyled components">
+
+                    <li>
+                    <%
+                        String SQL1 = "select nombre_usuario,estado from usuarios where rut_usuario = '" + request.getSession().getAttribute("nick") + "'";
+
+                        con = cn.getConnection();
+                        ps = con.prepareStatement(SQL1);
+                        rs = ps.executeQuery();
+
+                        while (rs.next()) {
+
+                            if (rs.getString("estado").equals("0")) {
 
 
-                <%
-                    String SQL1 = "select nombre_usuario,estado from usuarios where rut_usuario = '" + request.getSession().getAttribute("nick") + "'";
+                    %>  
+                    <p>Usuario: <%=rs.getString("nombre_usuario")%> </p> 
+                    </li>
+                    <li>
+                    <p>Estado: Deshabilitado</p>
+                    </li>
+                    <%
 
-                    con = cn.getConnection();
-                    ps = con.prepareStatement(SQL1);
-                    rs = ps.executeQuery();
+                    } else {
 
-                    while (rs.next()) {
-
-                        if (rs.getString("estado").equals("0")) {
-
-
-                %>  
-                <p>Usuario: <%=rs.getString("nombre_usuario")%> </p>  
-                <p>Estado: Deshabilitado</p>
-                <%
-
-                } else {
-
-                %>
-                <p>Usuario: <%=rs.getString("nombre_usuario")%> </p>  
-                <p>Estado: Activado</p>
-                <%
+                    %>
+                    <li>
+                    <p>Usuario: <%=rs.getString("nombre_usuario")%> </p>  
+                    <li>
+                    <p>Estado: Activado</p>
+                    </li>
+                    <br>
+                    <%
+                            }
                         }
-                    }
-                %>
+                    %>
+                    <li>
+                    <a href="panel_propietario.jsp" >Inicio</a> 
+                    </li>
+                    <%
+                        String SQL = "select * from usuarios where rut_usuario = '" + request.getSession().getAttribute("nick") + "'";
+                        con = cn.getConnection();
+                        ps = con.prepareStatement(SQL);
+                        rs = ps.executeQuery();
+
+                        while (rs.next()) {
+
+                            if (rs.getString("estado").equals("0")) {
 
 
+                    %>
 
+                    <%                } else if (rs.getString("estado").equals("1")) {
 
-                <a href="http://localhost:8080/inmobiliariaSINNIUNO/Ingreso_Usuarios"  class="w3-bar-item w3-button w3-hover-white">Inicio</a> 
+                    %>
+                    <li>
+                    <a href="#" onclick="vistaantecedente(<%out.print(request.getSession().getAttribute("nick"));%>);" >Agregar Inmueble</a> 
+                    </li>
+                    <li>
+                    <a href="#" onclick="vistalistar(<%out.print(request.getSession().getAttribute("nick"));%>);">Listar Inmuebles</a> 
+                    </li>
+                    <%    }
 
-                <%
-                    String SQL = "select * from usuarios where rut_usuario = '" + request.getSession().getAttribute("nick") + "'";
-                    con = cn.getConnection();
-                    ps = con.prepareStatement(SQL);
-                    rs = ps.executeQuery();
+                    %>
+                    <%                    }
 
-                    while (rs.next()) {
+                    %>
 
-                        if (rs.getString("estado").equals("0")) {
+                    <br>
+                    <li>
+                        <a href="Logout.jsp" >Salir</a>
+                    <!--<a href="#" onclick="salir()" >Salir</a>-->
+                    </li>
+                </ul>
+            </nav>
+            <div id="content" ></div>
+        </div>
+                    
+            <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+            <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 
-
-                %>
-
-
-
-                <%                } else if (rs.getString("estado").equals("1")) {
-
-                %>
-                <a href="#" onclick="vistaantecedente(<%out.print(request.getSession().getAttribute("nick"));%>);" class="w3-bar-item w3-button w3-hover-white">Agregar Antecedentes</a> 
-                <a href="#" onclick="vistalistar(<%out.print(request.getSession().getAttribute("nick"));%>);" class="w3-bar-item w3-button w3-hover-white">Listar Antecedentes</a> 
-                <%    }
-
-                %>
-                <%                    }
-
-                %>
-
-
-                <a href="#" onclick="salir()" class="w3-bar-item w3-button w3-hover-white">Salir</a>
-            </div>
-        </nav>
-
-        <!-- Top menu on small screens -->
-        <header class="w3-container w3-top w3-hide-large w3-red w3-xlarge w3-padding">
-            <a href="javascript:void(0)" class="w3-button w3-red w3-margin-right" onclick="w3_open()">☰</a>
-            <span>Company Name</span>
-        </header>
-
-        <!-- Overlay effect when opening sidebar on small screens -->
-        <div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
-
-
-
-        <!--TEXTO DE INICIO-->
-        <div id="content"></div>
-
-
-
-        <div class="w3-light-grey w3-container w3-padding-32" style="margin-top:75px;padding-right:58px"><p class="w3-right">Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-opacity">w3.css</a></p></div>
-
-
+            <script>
+                    $(document).ready(function () {
+                        $("#sidebarCollapse").on('click', function () {
+                            $("#sidebar").toggleClass('active');
+                        });
+                    });
+            </script>
     </body>
+    <footer class="footadm">
+        <div class=" float-right d-none d-sm-inline-block">
+            <strong>Copyright &copy; 2020 <a href="#">TheLaw&Seiko</a>.</strong>
+            Todos los derechos reservados.
+        </div>
+    </footer>
 </html>
 

@@ -32,7 +32,7 @@
 
 <div class="row mt-5">
     <div class="col-12">
-        <h3 class="mb-5">Listado Antedecentes</h3>
+        <h3 class="mb-5">Listado de Inmuebles:</h3>
         <table class="table table-info">
             <thead>
                 <tr>	 	
@@ -43,6 +43,7 @@
                     <th>Cantidad Dormitorio</th>
                     <th>Area Total Terreno</th>
                     <th>Area Construida</th>
+                    <th>Precio $</th>
                     <th>Precio UF</th>
                     <th>Fecha Publicado</th>
                     <th>Opcion Visita</th>

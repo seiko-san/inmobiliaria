@@ -33,7 +33,7 @@
 <div class="container">
     <div class="row mb-4">
         <div class="col-12"><br>
-            <h1 class="text-center text-white">REGISTRAR <br>Dueño de Inmueble o Propietario</h1>
+            <h3 class="text-center ">Activar/ Desactivar <br>Dueño de Inmueble o Propietario</h3>
         </div>
     </div>
 

@@ -25,16 +25,15 @@
         %>
 
 
-        <div class="container mt-5">
             <div class="row mb-4">
-                <div class="col-12">
-                    <h1 class="text-center">Listado de Inmobiliario</h1>
+                <div class="col-12"><br>
+                    <h3 class="mb-5">Listado de Usuarios :<br>Usuario Inmobiliario Free</h3>
                 </div>
             </div>
 
             <div class="row mt-5">
                 <div class="col-12">
-                    <table class="table">
+                    <table class="table table-info">
                         <thead>
                             <tr>
                                 <th>Rut Usuario</th>
@@ -74,4 +73,3 @@
                 </div>
 
             </div>
-        </div>

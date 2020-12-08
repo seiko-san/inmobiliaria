@@ -21,6 +21,7 @@
     <body id="LoginForm"><br>
         <div class="container">
             <h1 class="form-heading">Inmobiliaria SINNIUNO</h1>
+            <br><br>
             <div class="login-form">
                 <div class="main-div">
                     <div class="panel"><br>

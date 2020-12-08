@@ -23,6 +23,10 @@ div#color1{
     height: 100%;
 }
 
+.side{
+    background: #ff9900;
+}
+
 .footer {
   position:fixed;
   left:0px;
@@ -41,16 +45,24 @@ div#color1{
   color: white;
   text-align: center;
   display: flex;
-  
-
 }
+
 
 div#prop{
     background: #f4c36a;
 }
 
+.footadm{
+    position: fixed;
+}
 .footclas{
     margin-top:75px;
     padding-right:58px;
-    background-color: red;
+    background: red;
+}
+.footclass{
+    position: relative;
+    width: 100%;
+    padding-right:58px;
+    background: red;
 }

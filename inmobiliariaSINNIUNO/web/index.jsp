@@ -7,7 +7,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
-    <title>W3.CSS Template</title>
+    <title>Inmobiliaria SINNIUNO</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -135,9 +135,6 @@
                     </div>
                 </div>
             </div>
-
-
-            <!-- End page content -->
         </div>
 
 
@@ -165,7 +162,8 @@
     </body>
     <footer>
 
-         <div class="footclas w3-light-grey w3-container w3-padding-32"><p class="w3-right">
+         <div class="footer ">
+             <p>
                  <strong>Copyright &copy; 2020 <a href="#quienessomos">TheLaw&Seiko</a>.</strong>
             Todos los derechos reservados.
              </p>
