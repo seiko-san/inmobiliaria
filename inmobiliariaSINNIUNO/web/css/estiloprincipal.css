@@ -55,6 +55,17 @@ div#prop{
 .footadm{
     position: fixed;
 }
+.footind{
+  position:fixed;
+  left:0px;
+  bottom:0px;
+  width: 100%;
+  height: 50px;
+  background-color: red;
+  color: white;
+  text-align: center;
+  clear: both;
+}
 .footclas{
     margin-top:75px;
     padding-right:58px;

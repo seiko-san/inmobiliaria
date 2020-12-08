@@ -136,8 +136,8 @@
                 </div>
             </div>
         </div>
-
-
+        <br><br>
+        <br><br>
         <script>
             // Script to open and close sidebar
             function w3_open() {
@@ -161,13 +161,12 @@
 
     </body>
     <footer>
-
-         <div class="footer ">
+         <div class="footind ">
              <p>
                  <strong>Copyright &copy; 2020 <a href="#quienessomos">TheLaw&Seiko</a>.</strong>
             Todos los derechos reservados.
              </p>
          </div>
-   
+
     </footer>
 </html>

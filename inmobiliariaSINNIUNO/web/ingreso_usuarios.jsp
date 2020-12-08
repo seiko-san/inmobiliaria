@@ -19,6 +19,7 @@
 
 
     <body id="LoginForm">
+        
         <div class="container">
             <h1 class="form-heading">Inmobiliaria SINNIUNO</h1>
             <div class="login-form">
@@ -27,21 +28,19 @@
                         <h2>Login de ingreso</h2>
                         <p>Por favor digite su rut y contraseña</p>
                     </div>
-                        <form id="Login" class="form" method="post" action="Ingreso_Usuarios">
+                        <form id="Login" class="form" method="post" action="Ingreso_Usuarios" >
                         <div class="form-group ">
                                     <img src="img/user.png" height="20" width="20" alt=""/>
                                     <label for="nick" class="text">Ingrese su rut: </label><br>
-                                    <input type="text" name="txtnick" id="nick" class="form-control" placeholder="Ingrese nick de usuario">
+                                    <input type="text" name="txtnick" id="nick" class="form-control" placeholder="Ingrese nick de usuario" onkeypress="return valideKey(event);" required="">
                         </div>
                             
                         <div class="form-group">
                                     <img src="img/clave.png" height="25" width="25" alt=""/>
                                     <label for="clave" class="text">Ingrese su contraseña: </label><br>
-                                    <input type="password" name="txtclave" id="clave" class="form-control" placeholder="Ingrese contraseña">
+                                    <input type="password" name="txtclave" id="clave" class="form-control" placeholder="Ingrese contraseña" required="" >
                         </div>
-                        <div class="forgot">
-                            <a href="#">¿olvidó su contraseña?</a>
-                        </div>
+                        
                         <button type="submit" name="accion" class="btn btn-primary" value="Ingresar">Ingresar</button>
                     </form>
                     <div class="forgot">
@@ -52,6 +51,21 @@
             </div>
         </div>
 </body>
+<script>
+    function valideKey(evt){
+
+
+            var code = (evt.which) ? evt.which : evt.keyCode;
+
+            if(code==8) {
+              return true;
+            } else if(code>=48 && code<=57) { 
+              return true;
+            } else{ 
+              return false;
+            }
+        }
+</script>    
 <footer>
     <div class="footer float-right d-none d-sm-inline-block">
             <strong>Copyright &copy; 2020 <a href="#">TheLaw&Seiko</a>.</strong>
