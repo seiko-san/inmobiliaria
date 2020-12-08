@@ -21,7 +21,8 @@
     <body id="LoginForm">
         
         <div class="container">
-            <h1 class="form-heading">Inmobiliaria SINNIUNO</h1>
+            <h1 class="form-heading text-center">Inmobiliaria SINNIUNO</h1>
+            <br>
             <div class="login-form">
                 <div class="main-div">
                     <div class="panel">
@@ -34,15 +35,16 @@
                                     <label for="nick" class="text">Ingrese su rut: </label><br>
                                     <input type="text" name="txtnick" id="nick" class="form-control" placeholder="Ingrese nick de usuario" onkeypress="return valideKey(event);" required="">
                         </div>
-                            
+                            <br><br>
                         <div class="form-group">
                                     <img src="img/clave.png" height="25" width="25" alt=""/>
                                     <label for="clave" class="text">Ingrese su contraseña: </label><br>
                                     <input type="password" name="txtclave" id="clave" class="form-control" placeholder="Ingrese contraseña" required="" >
                         </div>
-                        
+                            <br><br>
                         <button type="submit" name="accion" class="btn btn-primary" value="Ingresar">Ingresar</button>
                     </form>
+                    <br>
                     <div class="forgot">
                             <a href="Nuevo_Usuario.jsp">Crear nuevo usuario</a>
                     </div>
